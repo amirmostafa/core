@@ -1,0 +1,13 @@
+{
+  "LOGIN":"تسجيل الدخول",
+  "LOGIN_WITH_YOUR_USERNAME":"مرحبا! تسجيل الدخول باسم المستخدم الخاص بك ",
+  "USER_NAME":"اسم المستخدم",
+  "PASSWORD":"كلمة المرور",
+  "USER_NAME_IS_REQUIRED":"اسم المستخدم مطلوب!",
+  "PASSWORD_IS_REQUIRD":"كلمة المرور مطلوبة!",
+  "REMEMBBER_ME":"تذكرنى",
+  "FORGET_PASSWORD":"هل نسيت كلمة المرور؟",
+  "REGISTER":"تسجيل",
+  "DON`T_HAVE_AN_ACCOUNT?":"ليس لديك حساب؟"
+
+}

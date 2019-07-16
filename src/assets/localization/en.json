@@ -1,0 +1,13 @@
+{
+  "LOGIN":"Login",
+  "LOGIN_WITH_YOUR_USERNAME":"Hello! Log in with your user name.",
+  "USER_NAME":"Username",
+  "PASSWORD":"Password",
+  "USER_NAME_IS_REQUIRED":"User name is required!",
+  "PASSWORD_IS_REQUIRD":" Password is required!",
+  "REMEMBBER_ME":"Remember me",
+  "FORGET_PASSWORD":"Forgot Password?",
+  "REGISTER":"Register",
+  "DON`T_HAVE_AN_ACCOUNT?":"Don't have an account?"
+
+}
