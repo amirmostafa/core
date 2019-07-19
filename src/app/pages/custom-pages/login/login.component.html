@@ -18,7 +18,7 @@
 <form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
 
   <div class="form-control-group">
-    <label class="label" >{{'USER_NAME'|translate}}</label>
+    <label class="label" >{{'USER_NAME'|translate}}:</label>
     <input nbInput
            fullWidth
            [(ngModel)]="user.username"
@@ -30,7 +30,7 @@
            [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.username.required')"
            [attr.aria-invalid]="username.invalid && username.touched ? true : null">
-    <ng-container *ngIf="username.invalid && username.touched && form.submitted">
+    <ng-container *ngIf="username.invalid && username.touched">
       <p class="error-message" *ngIf="username.errors?.required">
         {{'USER_NAME_IS_REQUIRED'|translate}}
       </p>
@@ -53,7 +53,7 @@
            [maxlength]="getConfigValue('forms.validation.password.maxLength')"
            [attr.aria-invalid]="password.invalid && password.touched ? true : null">
     <ng-container *ngIf="password.invalid && password.touched ">
-      <p class="error-message" *ngIf="password.errors?.required && form.submitted">
+      <p class="error-message" *ngIf="password.errors?.required">
        {{'PASSWORD_IS_REQUIRD'|translate}}
       </p>
       <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">

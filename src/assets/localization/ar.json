@@ -18,7 +18,8 @@
   "MOBILE":"رقم الموبايل",
   "EMAIL":"البريد الاكترونى",
   "CONFIRM_PASSWORD":"تاكيد كلمة المرور",
-  "REGISTER_NEW_STORE":"تسجيل متجر جديد"
+  "REGISTER_NEW_STORE":"تسجيل متجر جديد",
+  "IS_REQUIRED":"مطلوب"
 
 
 

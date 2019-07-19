@@ -17,9 +17,7 @@
   "MOBILE":"Mobile",
   "EMAIL":"Email",
   "CONFIRM_PASSWORD":"Confirm Password",
-  "REGISTER_NEW_STORE":"Register New Store"
-
-
-
+  "REGISTER_NEW_STORE":"Register New Store",
+  "IS_REQUIRED":"is required!"
 
 }
