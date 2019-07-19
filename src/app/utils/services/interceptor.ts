@@ -12,7 +12,11 @@ import {
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/do';
 import {ActivatedRoute} from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
+import {NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService} from "@nebular/theme";
+import {NbToastStatus} from "@nebular/theme/components/toastr/model";
+import {ToasterConfig} from "angular2-toaster";
+import {ToasterService} from "./toaster.service";
+import {TranslateService} from "@ngx-translate/core";
 
 
 @Injectable()
@@ -22,8 +26,18 @@ export class HTTPInterceptorImp implements HttpInterceptor, OnInit {
   private currentRoute;
   baseURL = 'http://localhost:8090/Core/';
 
+  config: ToasterConfig;
+
+  index = 1;
+  destroyByClick = true;
+  duration = 2000;
+  hasIcon = true;
+  position: NbGlobalPosition = NbGlobalPhysicalPosition.TOP_RIGHT;
+  preventDuplicates = false;
+  status: NbToastStatus = NbToastStatus.SUCCESS;
+
   constructor(private activeRoute: ActivatedRoute,
-              private toaster: ToastrService) {
+              private toaster: ToasterService) {
   }
 
   ngOnInit() {
@@ -40,7 +54,7 @@ export class HTTPInterceptorImp implements HttpInterceptor, OnInit {
       }
       return next.handle(request).do(() => {
       }, (err: any) => {
-        this.toaster.error(err.error.message ? err.error.message : 'error');
+        this.toaster.showToast(NbToastStatus.DANGER,  err.error.replyMessage|| 'error', 'ERROR');
       });
     } catch (e) {
       console.error(e);

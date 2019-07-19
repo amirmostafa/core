@@ -21,7 +21,7 @@ export class UserService {
     if (this.currentUser && this.currentUser.id) {
       return this.currentUser;
     } else {
-      this.router.navigate(['/']);
+      this.router.navigate(['/auth/login']);
     }
   }
 

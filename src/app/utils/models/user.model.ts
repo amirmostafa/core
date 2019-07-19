@@ -1,19 +1,17 @@
-import {AddressModel} from './address.model';
-import {ContactInfoModel} from './contact-info.model';
-import {FacilityModel} from './facility.model';
+import {StoreModel} from "./store.model";
 
 export class UserModel {
   id: number;
-  firstName: string;
-  secondName: string;
+  name: string;
   username: string;
-  type: String;
-  userType: String;
-  addressModel = new AddressModel();
-  contactInfoModel = new ContactInfoModel();
-  password: string;
+  type: string;
+  email: string;
+  mobile: string;
+  governorate: string;
+  city: string;
+  area: string;
+  address: string;
   language: string;
-  facilityModel = new FacilityModel();
-  clientModel = new FacilityModel();
-  storeModel = new FacilityModel();
+  avatar;
+  storeModel = new StoreModel();
 }

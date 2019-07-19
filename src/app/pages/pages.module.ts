@@ -6,6 +6,8 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
+import {ToasterModule} from "angular2-toaster";
+import {SharedModule} from "../shared.module";
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -13,11 +15,13 @@ const PAGES_COMPONENTS = [
 
 @NgModule({
   imports: [
+    SharedModule,
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
+    ToasterModule.forRoot(),
   ],
   declarations: [
     ...PAGES_COMPONENTS
