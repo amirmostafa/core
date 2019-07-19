@@ -19,7 +19,8 @@
   "EMAIL":"البريد الاكترونى",
   "CONFIRM_PASSWORD":"تاكيد كلمة المرور",
   "REGISTER_NEW_STORE":"تسجيل متجر جديد",
-  "IS_REQUIRED":"مطلوب"
+  "IS_REQUIRED":"مطلوب",
+  "PASSWORD_ERROR_LENGTH":" كلمة المرور يجب ان تحتوي من 6 الى 20 حرف"
 
 
 

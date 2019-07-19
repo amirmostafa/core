@@ -1,4 +1,4 @@
- <h1 id="title" class="title">{{'REGISTER_NEW_STORE'|translate}}</h1>
+<h1 id="title" class="title">{{'REGISTER_NEW_STORE'|translate}}</h1>
 
 <form (ngSubmit)="Register()" #form="ngForm">
   <div class="form-control-group">
@@ -43,10 +43,13 @@
     <input type="password" placeholder="{{'PASSWORD'|translate}}" [(ngModel)]="user.password" class="form-control"
       nbInput #password="ngModel" name="password" id="input-password" autofocus
       [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''" required
-      [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+      [attr.aria-invalid]="password.invalid && password.touched ? true : null" [minlength]="6" [maxlength]="20">
     <ng-container *ngIf="password.invalid && password.touched">
       <p class="error-message" *ngIf="password.errors?.required">
         {{'PASSWORD'|translate}} {{'IS_REQUIRED'|translate}}
+      </p>
+      <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+        {{'PASSWORD_ERROR_LENGTH'|translate}}
       </p>
     </ng-container>
   </div>
@@ -57,11 +60,15 @@
       class="align-self-center form-control" nbInput #confirmPassword="ngModel" name="confirmPassword"
       id="input-confirmPassword" autofocus
       [status]="confirmPassword.dirty ? (confirmPassword.invalid  ? 'danger' : 'success') : ''" required
-      [attr.aria-invalid]="confirmPassword.invalid && confirmPassword.touched ? true : null">
+      [attr.aria-invalid]="confirmPassword.invalid && confirmPassword.touched ? true : null" [minlength]="6"
+      [maxlength]="20">
     <ng-container *ngIf="confirmPassword.invalid && confirmPassword.touched">
       <p class="error-message" *ngIf="confirmPassword.errors?.required">
         {{'CONFIRM_PASSWORD'|translate}} {{'IS_REQUIRED'|translate}}
       </p>
+      <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+          {{'PASSWORD_ERROR_LENGTH'|translate}}
+        </p>
     </ng-container>
   </div>
 
