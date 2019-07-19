@@ -4,11 +4,11 @@ import {UserModel} from "../../../../utils/models/user.model";
 
 
 @Component({
-  selector: 'ngx-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  selector: 'ngx-confirm-store',
+  templateUrl: './confirm-store.component.html',
+  styleUrls: ['./confirm-store.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class ConfirmStoreComponent implements OnInit {
 
   private user = new UserModel();
 
@@ -16,12 +16,5 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  register(){
-    this.userService.register(this.user, true);
-  }
-
-
-  // getConfigValue(key: string): any{};
 
 }
