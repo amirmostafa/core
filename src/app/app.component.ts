@@ -6,6 +6,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { TranslateService } from '@ngx-translate/core';
+import {UserService} from "./utils/services/user.service";
 
 @Component({
   selector: 'ngx-app',
@@ -14,11 +15,17 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
 
   constructor(private analytics: AnalyticsService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.analytics.trackPageViews();
+    const user = sessionStorage.getItem('user');
+    if (user !== null) {
+      this.userService.setCurrentUser(JSON.parse(user));
+      this.translate.setDefaultLang(this.userService.getCurrentUser().language);
+    }
     this.translate.setDefaultLang('en');
 
   }

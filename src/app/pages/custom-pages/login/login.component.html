@@ -15,23 +15,23 @@
   </ul>
 </nb-alert>
 
-<form (ngSubmit)="login1()" #form="ngForm" aria-labelledby="title">
+<form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
 
   <div class="form-control-group">
     <label class="label" >{{'USER_NAME'|translate}}</label>
     <input nbInput
            fullWidth
-           [(ngModel)]="user.email"
-           #email="ngModel"
-           name="email"
-           id="input-email"
+           [(ngModel)]="user.username"
+           #username="ngModel"
+           name="username"
+           id="input-username"
            placeholder="User Name"
            autofocus
-           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
-           [required]="getConfigValue('forms.validation.email.required')"
-           [attr.aria-invalid]="email.invalid && email.touched ? true : null">
-    <ng-container *ngIf="email.invalid && email.touched">
-      <p class="error-message" *ngIf="email.errors?.required">
+           [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.username.required')"
+           [attr.aria-invalid]="username.invalid && username.touched ? true : null">
+    <ng-container *ngIf="username.invalid && username.touched && form.submitted">
+      <p class="error-message" *ngIf="username.errors?.required">
         {{'USER_NAME_IS_REQUIRED'|translate}}
       </p>
     </ng-container>
@@ -53,7 +53,7 @@
            [maxlength]="getConfigValue('forms.validation.password.maxLength')"
            [attr.aria-invalid]="password.invalid && password.touched ? true : null">
     <ng-container *ngIf="password.invalid && password.touched ">
-      <p class="error-message" *ngIf="password.errors?.required">
+      <p class="error-message" *ngIf="password.errors?.required && form.submitted">
        {{'PASSWORD_IS_REQUIRD'|translate}}
       </p>
       <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
