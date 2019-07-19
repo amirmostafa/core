@@ -12,6 +12,15 @@
   "ADD_USER":"اضافة مستخدم",
   "SELECT_TYPE":"اختر نوع المستخدم",
   "OWNER":"ماللك",
-  "DELEGATE":"مندوب"
+  "DELEGATE":"مندوب",
+  "STORE_NAME":"اسم المتجر",
+  "‎COMMERCIAL_REGISTER":"السجل التجارى",
+  "MOBILE":"رقم الموبايل",
+  "EMAIL":"البريد الاكترونى",
+  "CONFIRM_PASSWORD":"تاكيد كلمة المرور",
+  "REGISTER_NEW_STORE":"تسجيل متجر جديد"
+
+
+
 
 }
