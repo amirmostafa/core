@@ -48,7 +48,7 @@ export class ToasterService {
 
     this.index += 1;
     this.toaster.show(
-      body,
+      body ? this.translate.instant(body): '',
       title ? this.translate.instant(title): '',
       config);
   }

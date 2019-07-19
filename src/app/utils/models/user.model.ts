@@ -4,6 +4,8 @@ export class UserModel {
   id: number;
   name: string;
   username: string;
+  password: string;
+  confirmPassword: string;
   type: string;
   email: string;
   mobile: string;
@@ -13,5 +15,5 @@ export class UserModel {
   address: string;
   language: string;
   avatar;
-  storeModel = new StoreModel();
+  storeModel: StoreModel;
 }

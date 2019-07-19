@@ -4,6 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {EventService} from './event.service';
+import {NbToastStatus} from "@nebular/theme/components/toastr/model";
+import {ToasterService} from "./toaster.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,8 @@ export class UserService {
   constructor(private http: HttpClient,
               private router: Router,
               private translate: TranslateService,
-              private eventService: EventService<any>) {
+              private eventService: EventService<any>,
+              private toaster: ToasterService) {
   }
 
   getCurrentUser() {
@@ -53,5 +56,17 @@ export class UserService {
     } else {
       document.body.classList.remove('rtl');
     }
+  }
+
+  register(user: UserModel, redirectToLogin?: boolean) {
+    if(user.password !== user.confirmPassword){
+      this.toaster.showToast(NbToastStatus.DANGER, 'PASSWORDS_DONT_MATCHES');
+    }
+    this.http.post('/user/register', user).subscribe(() => {
+      this.toaster.showToast(NbToastStatus.SUCCESS, 'DATA_SAVED_SUCCESSFULLY');
+      if(redirectToLogin){
+        this.router.navigate(['/auth/login']);
+      }
+    });
   }
 }
