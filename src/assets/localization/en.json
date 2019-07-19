@@ -8,6 +8,10 @@
   "REMEMBBER_ME":"Remember me",
   "FORGET_PASSWORD":"Forgot Password?",
   "REGISTER":"Register",
-  "DON`T_HAVE_AN_ACCOUNT?":"Don't have an account?"
+  "DON`T_HAVE_AN_ACCOUNT?":"Don't have an account?",
+  "ADD_USER":"Add User",
+  "SELECT_TYPE":"Select User",
+  "DELEGATE":"Delegate"
+
 
 }

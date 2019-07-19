@@ -2,9 +2,9 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
+    title: 'Add User',
     icon: 'nb-e-commerce',
-    link: '/auth/login',
+    link: '/pages/add-user',
     home: true,
   },
   {

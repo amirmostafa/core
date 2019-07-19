@@ -8,6 +8,10 @@
   "REMEMBBER_ME":"تذكرنى",
   "FORGET_PASSWORD":"هل نسيت كلمة المرور؟",
   "REGISTER":"تسجيل",
-  "DON`T_HAVE_AN_ACCOUNT?":"ليس لديك حساب؟"
+  "DON`T_HAVE_AN_ACCOUNT?":"ليس لديك حساب؟",
+  "ADD_USER":"اضافة مستخدم",
+  "SELECT_TYPE":"اختر نوع المستخدم",
+  "OWNER":"ماللك",
+  "DELEGATE":"مندوب"
 
 }
