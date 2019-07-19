@@ -10,7 +10,7 @@ import {StoreModel} from "../../../../utils/models/store.model";
 })
 export class RegisterComponent implements OnInit {
 
-  private user = new UserModel();
+ user = new UserModel();
 
   constructor(private userService: UserService) { }
 

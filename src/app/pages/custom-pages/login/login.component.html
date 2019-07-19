@@ -25,7 +25,7 @@
            #username="ngModel"
            name="username"
            id="input-username"
-           placeholder="User Name"
+           placeholder="{{'USER_NAME'|translate}}"
            autofocus
            [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.username.required')"
@@ -46,7 +46,7 @@
            name="password"
            type="password"
            id="input-password"
-           placeholder="Password"
+           placeholder="{{'PASSWORD'|translate}}"
            [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.password.required')"
            [minlength]="getConfigValue('forms.validation.password.minLength')"
