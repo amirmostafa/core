@@ -49,7 +49,7 @@ export class ToasterService {
     this.index += 1;
     this.toaster.show(
       body ? this.translate.instant(body): '',
-      title ? this.translate.instant(title): '',
+      title ? this.translate.instant(title): type === NbToastStatus.SUCCESS? this.translate.instant('SUCCESS'): '',
       config);
   }
 }

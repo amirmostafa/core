@@ -61,6 +61,7 @@ export class UserService {
   register(user: UserModel, redirectToLogin?: boolean) {
     if(user.password !== user.confirmPassword){
       this.toaster.showToast(NbToastStatus.DANGER, 'PASSWORDS_DONT_MATCHES');
+      return;
     }
     this.http.post('user/register', user).subscribe(() => {
       this.toaster.showToast(NbToastStatus.SUCCESS, 'DATA_SAVED_SUCCESSFULLY');
