@@ -3,88 +3,65 @@
   <nb-card-body class="card-add-user">
     <div class="form-group d-flex flex-column align-items-center">
       <div class="d-flex w-100 justify-content-center">
-        <form class="w-75" (ngSubmit)="register()" #form="ngForm">
-          <fieldset [disabled]="disabled">
-            <div class="d-flex pb-4">
-              <div class="col-md-3 align-self-center">
-                <label>{{'SELECT_TYPE'}}</label>
-              </div>
-              <div class="col-md-9">
-                <select required name="language" [(ngModel)]="user.type" #type="ngModel"
-                        class="align-self-center form-control" nbInput autofocus
-                        [attr.aria-invalid]="type.invalid && type.touched ? true : null">
-                  <option value="OWNER">{{'OWNER'|translate}}</option>
-                  <option value="STORE">{{'STORE'|translate}}</option>
-                </select>
-              </div>
-            </div>
-            <div class="d-flex pb-4">
-              <div class="col-md-3 align-self-center">
-                <label>{{'USER_NAME'|translate}}</label>
-              </div>
-              <div class="col-md-9">
-                <div class="input-group">
-                  <input type="text" placeholder="{{'USER_NAME'|translate}}" class="form-control"/>
+        <form *ngIf="user" class="w-100" (ngSubmit)="register()" #form="ngForm">
+          <fieldset class="d-flex" [disabled]="disabled">
+            <div class="col-md-6 col-12">
+              <div class="d-flex pb-4">
+                <div class="col-md-3 align-self-center">
+                  <label>{{'SELECT_TYPE'|translate}}:</label>
+                </div>
+                <div class="col-md-9 input-group">
+                  <input type="text" name="type" #type="ngModel" placeholder="{{'EMAIL'|translate}}"
+                    [(ngModel)]="user.type" class="align-self-center form-control" disabled />
                 </div>
               </div>
-            </div>
+              <div class="d-flex  pb-4">
+                <div class="col-md-3 align-self-center">
+                  <label>{{'EMAIL'|translate}}:</label>
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="email" name="email" #email="ngModel" placeholder="{{'EMAIL'|translate}}"
+                      [(ngModel)]="user.email" class="align-self-center form-control" disabled />
+                  </div>
+                </div>
+              </div>
 
-            <div class="d-flex  pb-4">
-              <div class="col-md-3 align-self-center">
-                <label>{{'PASSWORD'|translate}}</label>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="d-flex pb-4">
+                <div class="col-md-3 align-self-center">
+                  <label>{{'USER_NAME'|translate}}:</label>
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="text" name="username" #username="ngModel" placeholder="{{'USER_NAME'|translate}}"
+                      [(ngModel)]="user.username" class="form-control" disabled />
+                  </div>
+                </div>
               </div>
-              <div class="col-md-9">
-                <div class="input-group">
-                  <input type="text" placeholder="{{'PASSWORD'|translate}}" class="form-control"/>
+              <div class="d-flex  pb-4">
+                <div class="col-md-3 align-self-center">
+                  <label>{{'MOBILE'|translate}}:</label>
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="text" name="mobile" #mobile="ngModel" placeholder="{{'MOBILE'|translate}}"
+                      [(ngModel)]="user.mobile" class="align-self-center form-control" disabled />
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="d-flex  pb-4">
-              <div class="col-md-3 align-self-center">
-                <label>{{'CONFIRM_PASSWORD'|translate}}</label>
-              </div>
-              <div class="col-md-9">
-                <div class="input-group">
-                  <input type="text" placeholder="{{'CONFIRM_PASSWORD'|translate}}"
-                         class="align-self-center form-control"/>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-flex  pb-4">
-              <div class="col-md-3 align-self-center">
-                <label>{{'EMAIL'|translate}}</label>
-              </div>
-              <div class="col-md-9">
-                <div class="input-group">
-                  <input type="email" placeholder="{{'EMAIL'|translate}}" class="align-self-center form-control"/>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-flex  pb-4">
-              <div class="col-md-3 align-self-center">
-                <label>{{'MOBILE'|translate}}</label>
-              </div>
-              <div class="col-md-9">
-                <div class="input-group">
-                  <input type="text" placeholder="{{'MOBILE'|translate}}" class="align-self-center form-control"/>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex justify-content-center">
+            <div *ngIf="disabled !== true" class="d-flex justify-content-center">
               <div class="col-md-3">
                 <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid"
-                        [class.btn-pulse]="submitted">
+                  [class.btn-pulse]="submitted">
                   {{'ADD_USER'|translate}}
                 </button>
               </div>
             </div>
           </fieldset>
-
         </form>
-
       </div>
     </div>
   </nb-card-body>
