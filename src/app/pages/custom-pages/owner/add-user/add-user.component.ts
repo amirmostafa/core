@@ -18,6 +18,7 @@ export class AddUserComponent implements OnInit {
   }
 
   register(){
+    this.user.active = true;
     this.userService.register(this.user, true);
   }
 

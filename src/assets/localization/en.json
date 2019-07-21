@@ -19,7 +19,13 @@
   "CONFIRM_PASSWORD":"Confirm Password",
   "REGISTER_NEW_STORE":"Register New Store",
   "IS_REQUIRED":"is required!",
-  "PASSWORD_ERROR_LENGTH":" Password should contains from 6 to 20 characters"
+  "PASSWORD_ERROR_LENGTH":" Password should contains from 6 to 20 characters",
+  "OWNER":"Owner",
+  "GOVERNORATE":"Governorate",
+  "CITY":"City",
+  "ADDRESS":"Address",
+  "LANGUAGE":"Language",
+  "NAME":"Name"
 
 
 }

@@ -2,7 +2,7 @@
 
 <form (ngSubmit)="register()" #form="ngForm">
   <div class="form-control-group">
-    <label>{{'STORE_NAME'|translate}}:</label>
+    <label>{{'STORE_NAME'|translate}}*:</label>
     <input type="text" placeholder="{{'STORE_NAME'|translate}}" [(ngModel)]="user.name"
            class="align-self-center form-control" nbInput #storeName="ngModel" name="storeName" id="input-storeName"
            autofocus [status]="storeName.dirty ? (storeName.invalid  ? 'danger' : 'success') : ''" required
@@ -14,7 +14,7 @@
     </ng-container>
   </div>
   <div class="form-control-group">
-    <label>{{'‎COMMERCIAL_REGISTER'|translate}}:</label>
+    <label>{{'‎COMMERCIAL_REGISTER'|translate}}*:</label>
     <input type="text" placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}"
            [(ngModel)]="user.commercialRegister" class="align-self-center form-control" nbInput
            #commercialRegister="ngModel" name="commercialRegister" id="input-commercialRegister" autofocus
@@ -27,7 +27,7 @@
     </ng-container>
   </div>
   <div class="form-control-group">
-    <label>{{'USER_NAME'|translate}}:</label>
+    <label>{{'USER_NAME'|translate}}*:</label>
     <input type="text" placeholder="{{'USER_NAME'|translate}}" [(ngModel)]="user.username" class="form-control" nbInput
            #username="ngModel" name="username" id="input-username" autofocus
            [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''" required
@@ -39,7 +39,7 @@
     </ng-container>
   </div>
   <div class="form-control-group">
-    <label>{{'PASSWORD'|translate}}:</label>
+    <label>{{'PASSWORD'|translate}}*:</label>
     <input type="password" placeholder="{{'PASSWORD'|translate}}" [(ngModel)]="user.password" class="form-control"
            nbInput #password="ngModel" name="password" id="input-password" autofocus
            [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''" required
@@ -55,7 +55,7 @@
   </div>
 
   <div class="form-control-group">
-    <label>{{'CONFIRM_PASSWORD'|translate}}:</label>
+    <label>{{'CONFIRM_PASSWORD'|translate}}*:</label>
     <input type="password" placeholder="{{'CONFIRM_PASSWORD'|translate}}" [(ngModel)]="user.confirmPassword"
            class="align-self-center form-control" nbInput #confirmPassword="ngModel" name="confirmPassword"
            id="input-confirmPassword" autofocus
@@ -73,7 +73,7 @@
   </div>
 
   <div class="form-control-group">
-    <label>{{'EMAIL'|translate}}:</label>
+    <label>{{'EMAIL'|translate}}*:</label>
     <input type="email" placeholder="{{'EMAIL'|translate}}" [(ngModel)]="user.email"
            class="align-self-center form-control" nbInput #email="ngModel" name="email" id="input-email" autofocus
            [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''" required
@@ -86,7 +86,7 @@
   </div>
 
   <div class="form-control-group">
-    <label>{{'MOBILE'|translate}}:</label>
+    <label>{{'MOBILE'|translate}}*:</label>
     <input type="text" placeholder="{{'MOBILE'|translate}}" [(ngModel)]="user.mobile"
            class="align-self-center form-control" nbInput #mobile="ngModel" name="mobile" id="input-mobile" autofocus
            [status]="mobile.dirty ? (mobile.invalid  ? 'danger' : 'success') : ''" required
@@ -98,7 +98,7 @@
     </ng-container>
   </div>
   <div class="form-control-group">
-    <label>{{'STORE_NAME'|translate}}:</label>
+    <label>{{'STORE_NAME'|translate}}*:</label>
     <input type="text" placeholder="{{'STORE_NAME'|translate}}" [(ngModel)]="user.name"
            class="align-self-center form-control" nbInput #storeName="ngModel" name="storeName" id="input-storeName"
            autofocus [status]="storeName.dirty ? (storeName.invalid  ? 'danger' : 'success') : ''" required
@@ -110,7 +110,7 @@
     </ng-container>
   </div>
   <div class="form-control-group">
-    <label>{{'GOVERONRATE'|translate}}:</label>
+    <label>{{'GOVERONRATE'|translate}}*:</label>
     <input type="text" placeholder="{{'GOVERONRATE'|translate}}" [(ngModel)]="user.governorate"
            class="align-self-center form-control" nbInput #governorate="ngModel" name="governorate"
            autofocus [status]="governorate.dirty ? (governorate.invalid  ? 'danger' : 'success') : ''" required
@@ -132,7 +132,7 @@
            class="align-self-center form-control" nbInput #address="ngModel" name="address" >
   </div>
   <div class="form-control-group">
-    <label>{{'LANGUAGE'|translate}}:</label>
+    <label>{{'LANGUAGE'|translate}}*:</label>
     <select required name="language" [(ngModel)]="user.language" #language="ngModel"
             class="align-self-center form-control" nbInput autofocus
             [attr.aria-invalid]="language.invalid && language.touched ? true : null">
