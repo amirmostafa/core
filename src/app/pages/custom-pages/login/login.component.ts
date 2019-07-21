@@ -52,6 +52,7 @@ export class LoginComponent {
 
     this.http.post('user/login', this.user).subscribe((data: UserModel) => {
       sessionStorage.setItem('user', JSON.stringify(data));
+      this.userService.setCurrentUser(data);
       this.toaster.showToast(NbToastStatus.SUCCESS, 'LOGGED_IN_SUCCESSFULLY');
       this.router.navigate(['/']);
     }, (error) => {

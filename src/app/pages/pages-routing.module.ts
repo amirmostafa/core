@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { AddUserComponent } from './custom-pages/owner/add-user/add-user.component';
+import {ConfirmStoreComponent} from "./custom-pages/owner/confirm-store/confirm-store.component";
+import {AuthGaurdOwnerService} from "./auth-gaurd-owner.service";
 
 const routes: Routes = [{
   path: '',
@@ -14,11 +16,17 @@ const routes: Routes = [{
     {
       path: 'add-user',
       component: AddUserComponent,
-    }, 
+      canActivate: [AuthGaurdOwnerService]
+    },
+    {
+      path: 'confirm-stores',
+      component: ConfirmStoreComponent,
+      canActivate: [AuthGaurdOwnerService]
+    },
     {
     path: 'dashboard',
     component: ECommerceComponent,
-  }, 
+  },
   {
     path: 'iot-dashboard',
     component: DashboardComponent,

@@ -15,5 +15,6 @@ export class UserModel {
   address: string;
   language: string;
   avatar;
-  storeModel: StoreModel;
+  commercialRegister: string;
+  active: boolean;
 }

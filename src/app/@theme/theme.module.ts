@@ -35,7 +35,7 @@ import {
   NbSelectModule,
   NbChatModule,
   NbTooltipModule,
-  NbCalendarKitModule,
+  NbCalendarKitModule
 } from '@nebular/theme';
 
 import { NbSecurityModule } from '@nebular/security';
@@ -50,7 +50,7 @@ import {
   ThemeSwitcherComponent,
   TinyMCEComponent,
   ThemeSwitcherListComponent,
-  ToggleSettingsButtonComponent,
+  ToggleSettingsButtonComponent
 } from './components';
 import {
   CapitalizePipe,
@@ -69,6 +69,7 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
+import {SharedModule} from "../shared.module";
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -106,6 +107,7 @@ const NB_MODULES = [
   NbChatModule,
   NbTooltipModule,
   NbCalendarKitModule,
+  SharedModule
 ];
 
 const COMPONENTS = [
