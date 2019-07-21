@@ -15,11 +15,13 @@ import {HTTPInterceptorImp} from "../utils/services/interceptor";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {APP_BASE_HREF} from "@angular/common";
 import {UiFeaturesModule} from "./ui-features/ui-features.module";
+import { ViewProfileComponent } from './custom-pages/view-profile/view-profile.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
   AddUserComponent,
-  ConfirmStoreComponent
+  ConfirmStoreComponent,
+  ViewProfileComponent
 ];
 
 @NgModule({
@@ -35,7 +37,8 @@ const PAGES_COMPONENTS = [
     UiFeaturesModule
   ],
   declarations: [
-    ...PAGES_COMPONENTS ],
+    ...PAGES_COMPONENTS,
+    ViewProfileComponent ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     {

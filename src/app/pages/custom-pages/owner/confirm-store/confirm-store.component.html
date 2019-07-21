@@ -3,8 +3,8 @@
     {{'CONFIRM_NEW_STORES'|translate}}
   </nb-card-header>
 
-  <nb-card-body>
-    <ng2-smart-table *ngIf="stores" [settings]="settings"  [source]="stores" (deleteConfirm)="onDeleteConfirm($event)">
+  <nb-card-body class="custom-card">
+    <ng2-smart-table *ngIf="stores" [settings]="settings" (custom)="customAction($event)"  [source]="stores" (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>
