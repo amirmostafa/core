@@ -1,53 +1,112 @@
 <nb-card>
   <nb-card-header>{{'PROFILE'|translate}}</nb-card-header>
   <nb-card-body class="card-add-user">
-    <div class="form-group d-flex flex-column align-items-center">
+    <div class="form-group d-flex align-items-center">
       <div class="d-flex w-100 justify-content-center">
         <form *ngIf="user" class="w-100" (ngSubmit)="register()" #form="ngForm">
           <fieldset class="d-flex" [disabled]="disabled">
-            <div class="col-md-6 col-12">
-              <div class="d-flex pb-4">
-                <div class="col-md-3 align-self-center">
-                  <label>{{'SELECT_TYPE'|translate}}:</label>
+            <div class="d-flex">
+              <div class="col-md-6 col-12">
+                <div class="d-flex pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'SELECT_TYPE'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9 input-group">
+                    <input type="text" name="type" #type="ngModel" placeholder="{{'EMAIL'|translate}}"
+                      [(ngModel)]="user.type" class="align-self-center form-control" disabled />
+                  </div>
                 </div>
-                <div class="col-md-9 input-group">
-                  <input type="text" name="type" #type="ngModel" placeholder="{{'EMAIL'|translate}}"
-                    [(ngModel)]="user.type" class="align-self-center form-control" disabled />
+                <div class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'EMAIL'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="email" name="email" #email="ngModel" placeholder="{{'EMAIL'|translate}}"
+                        [(ngModel)]="user.email" class="align-self-center form-control" disabled />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="d-flex  pb-4">
-                <div class="col-md-3 align-self-center">
-                  <label>{{'EMAIL'|translate}}:</label>
+                <div class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'ADDRESS'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" name="address" #address="ngModel" placeholder="{{'ADDRESS'|translate}}"
+                        [(ngModel)]="user.address" class="align-self-center form-control" disabled />
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-9">
-                  <div class="input-group">
-                    <input type="email" name="email" #email="ngModel" placeholder="{{'EMAIL'|translate}}"
-                      [(ngModel)]="user.email" class="align-self-center form-control" disabled />
+                <div class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'GOVERNORATE'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" name="governorate" #governorate="ngModel"
+                        placeholder="{{'GOVERNORATE'|translate}}" [(ngModel)]="user.governorate"
+                        class="align-self-center form-control" disabled />
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'LANGUAGE'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" name="language" #language="ngModel" placeholder="{{'LANGUAGE'|translate}}"
+                        [(ngModel)]="user.language" class="align-self-center form-control" disabled />
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="col-md-6 col-12">
+                <div class="d-flex pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'USER_NAME'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" name="username" #username="ngModel" placeholder="{{'USER_NAME'|translate}}"
+                        [(ngModel)]="user.username" class="form-control" disabled />
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'MOBILE'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" name="mobile" #mobile="ngModel" placeholder="{{'MOBILE'|translate}}"
+                        [(ngModel)]="user.mobile" class="align-self-center form-control" disabled />
+                    </div>
+                  </div>
+                </div>
 
-            </div>
-            <div class="col-md-6 col-12">
-              <div class="d-flex pb-4">
-                <div class="col-md-3 align-self-center">
-                  <label>{{'USER_NAME'|translate}}:</label>
-                </div>
-                <div class="col-md-9">
-                  <div class="input-group">
-                    <input type="text" name="username" #username="ngModel" placeholder="{{'USER_NAME'|translate}}"
-                      [(ngModel)]="user.username" class="form-control" disabled />
+                <div class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'CITY'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" name="city" #city="ngModel" placeholder="{{'CITY'|translate}}"
+                        [(ngModel)]="user.city" class="align-self-center form-control" disabled />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="d-flex  pb-4">
-                <div class="col-md-3 align-self-center">
-                  <label>{{'MOBILE'|translate}}:</label>
-                </div>
-                <div class="col-md-9">
-                  <div class="input-group">
-                    <input type="text" name="mobile" #mobile="ngModel" placeholder="{{'MOBILE'|translate}}"
-                      [(ngModel)]="user.mobile" class="align-self-center form-control" disabled />
+                <div *ngIf="user.type === 'STORE'" class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'‎COMMERCIAL_REGISTER'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" name="commercialRegister" #commercialRegister="ngModel"
+                        placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}" [(ngModel)]="user.commercialRegister"
+                        class="align-self-center form-control" disabled />
+                    </div>
                   </div>
                 </div>
               </div>
