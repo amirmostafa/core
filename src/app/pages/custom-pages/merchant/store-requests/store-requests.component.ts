@@ -18,7 +18,7 @@ export class StoreRequestsComponent implements OnInit {
   settings = {
     hideSubHeader: true,
     actions: {
-      columnTitle: 'Actions',
+      columnTitle: this.translate.instant('ACTIONS'),
       add: false,
       edit: false,
       delete: false,

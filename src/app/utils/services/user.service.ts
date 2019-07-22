@@ -51,14 +51,17 @@ export class UserService {
     }
     this.eventService.broadcastEvent('language', this.currentUser.language);
     this.http.get('user/changeLanguage/'+ this.currentUser.id+'/'+this.currentUser.language).subscribe();
+    window.location.reload();
   }
 
   switchLanguageWithoutSave(lang) {
     this.translate.setDefaultLang(lang);
     if (lang === 'ar') {
-      document.body.classList.add('rtl');
+      // document.body.classList.add('rtl');
+      this.directionService.setDirection(NbLayoutDirection.RTL);
     } else {
-      document.body.classList.remove('rtl');
+      // document.body.classList.remove('rtl');
+      this.directionService.setDirection(NbLayoutDirection.LTR);
     }
   }
 

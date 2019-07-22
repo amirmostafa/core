@@ -119,7 +119,7 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
       return '';
     },
     actions: {
-      columnTitle: 'Actions',
+      columnTitle: this.translate.instant('ACTIONS'),
       add: false,
       edit: false,
       delete: false,

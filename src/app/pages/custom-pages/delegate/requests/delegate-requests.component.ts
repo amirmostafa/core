@@ -107,7 +107,7 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
       return '';
     },
     actions: {
-      columnTitle: 'Actions',
+      columnTitle: this.translate.instant('ACTIONS'),
       add: false,
       edit: false,
       delete: false,
@@ -145,7 +145,7 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
       name: {
         title: this.translate.instant('PRODUCT_NAME'),
         type: 'string',
-        width: '12%'
+        width: '15%'
       },
       date: {
         title: this.translate.instant('DATE'),
@@ -160,7 +160,7 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
       statusLocalized: {
         title: this.translate.instant('STATUS'),
         type: 'string',
-        width: '12%',
+        width: '15%',
         filterFunction(cell?: any, search?: string): boolean {
           return cell === search;
         },

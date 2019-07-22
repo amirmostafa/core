@@ -24,9 +24,10 @@ export class AppComponent implements OnInit {
     const user = sessionStorage.getItem('user');
     if (user !== null) {
       this.userService.setCurrentUser(JSON.parse(user));
-      this.translate.setDefaultLang(this.userService.getCurrentUser().language);
+      this.userService.switchLanguageWithoutSave(this.userService.getCurrentUser().language);
+    } else {
+      this.userService.switchLanguageWithoutSave('en');
     }
-    this.translate.setDefaultLang('en');
 
   }
 }

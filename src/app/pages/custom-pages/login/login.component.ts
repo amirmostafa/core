@@ -42,6 +42,7 @@ export class LoginComponent {
     if (sessionStorage) {
       sessionStorage.removeItem('user');
     }
+    this.userService.switchLanguageWithoutSave('en');
     this.userService.currentUser = undefined;
   }
 
@@ -53,6 +54,7 @@ export class LoginComponent {
     this.http.post('user/login', this.user).subscribe((data: UserModel) => {
       sessionStorage.setItem('user', JSON.stringify(data));
       this.userService.setCurrentUser(data);
+      this.userService.switchLanguageWithoutSave(data.language);
       this.toaster.showToast(NbToastStatus.SUCCESS, 'LOGGED_IN_SUCCESSFULLY');
       this.router.navigate(['/']);
     }, (error) => {
