@@ -78,8 +78,17 @@
   "PASSWORDS_DONT_MATCHES":"Password Don't Matches",
   "LOGGED_IN_SUCCESSFULLY":"Logged In Successfully",
   "REQUEST_DELETED_SUCCESSFULLY":"Request Deleted Successfully",
-  "SUCCESS":"Success"
-
-
+  "SUCCESS":"Success",
+  "SAVE":"Save",
+  "ENGLISH":"English",
+  "ARABIC":"Arabic",
+  "CANCEL":"Cancel",
+  "TIME":"Time",
+  "PRODUCT_DESCRIPTION":"Product Description",
+  "REQUEST":"Request",
+  "ADD_REQUEST":"Add Request",
+  "APPROVE":"Approve",
+  "USERNAME":"User Name",
+  "DELEGATE REQUESTS":"Delegate Requets"
 
 }
