@@ -10,7 +10,7 @@ import {UserModel} from "../../../../utils/models/user.model";
 })
 export class AddUserComponent implements OnInit {
 
-  private user = new UserModel();
+  user = new UserModel();
 
   constructor(private userService: UserService) { }
 
@@ -19,7 +19,7 @@ export class AddUserComponent implements OnInit {
 
   register(){
     this.user.active = true;
-    this.userService.register(this.user, true);
+    this.userService.register(this.user, null);
   }
 
 

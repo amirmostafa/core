@@ -58,7 +58,6 @@ import {UserService} from "../../../utils/services/user.service";
         <ngx-theme-settings></ngx-theme-settings>
       </nb-sidebar>
     </nb-layout>
-    <ngx-toggle-settings-button></ngx-toggle-settings-button>
   `,
 })
 export class SampleLayoutComponent implements OnDestroy {

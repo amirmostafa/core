@@ -53,6 +53,9 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
       case 'approve':
         this.approve(event.data);
         return;
+      case 'deliver':
+        this.deliver(event.data);
+        return;
       case 'reject':
         this.reject(event.data);
         return;
@@ -67,7 +70,15 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
     this.http.get('request/changeRequestStatus/ACCEPTED_BY_DELEGATE/' + data.id).subscribe(() => {
       this.toaster.showToast(NbToastStatus.SUCCESS, this.translate.instant('REQUEST_ACCEPTED_SUCCESSFULLY'));
       this.init();
-    });  }
+    });
+  }
+
+  deliver(data) {
+    this.http.get('request/changeRequestStatus/DELIVERED/' + data.id).subscribe(() => {
+      this.toaster.showToast(NbToastStatus.SUCCESS, this.translate.instant('REQUEST_DELIVERED_SUCCESSFULLY'));
+      this.init();
+    });
+  }
 
   reject(data) {
     this.http.get('request/changeRequestStatus/REJECTED_BY_DELEGATE/' + data.id).subscribe(() => {
@@ -83,9 +94,16 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
 
   settings = {
     rowClassFunction: (row) => {
-      if (row.data.status === 'ACCEPTED_BY_DELEGATE' || row.data.status === 'REJECTED_BY_DELEGATE') {
-        return 'hide-assign';
+      if (row.data.status === 'ACCEPTED_BY_DELEGATE') {
+        return 'hide-accepted';
       }
+      if (row.data.status === 'REJECTED_BY_DELEGATE') {
+        return 'hide-rejected';
+      }
+      if (row.data.status === 'DELIVERED') {
+        return 'hide-delivered';
+      }
+
       return '';
     },
     actions: {
@@ -97,6 +115,10 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
         {
           name: 'view',
           title: '<i class="ion-eye" title="' + this.translate.instant('VIEW') + '"></i>'
+        },
+        {
+          name: 'deliver',
+          title: '<i class="ion-paper-airplane" title="' + this.translate.instant('DELIVER') + '"></i>'
         },
         {
           name: 'approve',

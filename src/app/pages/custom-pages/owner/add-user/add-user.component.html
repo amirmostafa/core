@@ -196,8 +196,8 @@
 
           <div class="d-flex justify-content-center">
             <div class="col-md-3">
-              <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid"
-                [class.btn-pulse]="submitted">
+              <button nbButton fullWidth status="success" [disabled]="form.submitted || !form.valid"
+                [class.btn-pulse]="form.submitted">
                 {{'ADD_USER'|translate}}
               </button>
             </div>

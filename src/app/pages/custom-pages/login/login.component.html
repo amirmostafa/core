@@ -1,4 +1,6 @@
-<h1 id="title" class="title">{{'LOGIN'|translate}}</h1>
+<h1 id="title" class="title">{{'SITE_NAME'|translate}}</h1>
+
+<h1 id="sub-title" class="sub-title">{{'LOGIN'|translate}}</h1>
 <p class="sub-title">{{'LOGIN_WITH_YOUR_USERNAME'|translate}}</p>
 
 <!-- <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
@@ -63,10 +65,6 @@
     </ng-container>
   </div>
 
-  <div class="form-control-group accept-group">
-    <nb-checkbox name="rememberMe" [(ngModel)]="user.rememberMe" *ngIf="rememberMe">{{'REMEMBBER_ME'|translate}}</nb-checkbox>
-    <a class="forgot-password" routerLink="../request-password">{{'FORGET_PASSWORD'|translate}}</a>
-  </div>
 
   <button nbButton
           fullWidth

@@ -98,18 +98,6 @@
     </ng-container>
   </div>
   <div class="form-control-group">
-    <label>{{'STORE_NAME'|translate}}*:</label>
-    <input type="text" placeholder="{{'STORE_NAME'|translate}}" [(ngModel)]="user.name"
-           class="align-self-center form-control" nbInput #storeName="ngModel" name="storeName" id="input-storeName"
-           autofocus [status]="storeName.dirty ? (storeName.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="storeName.invalid && storeName.touched ? true : null">
-    <ng-container *ngIf="storeName.invalid && storeName.touched">
-      <p class="error-message" *ngIf="storeName.errors?.required">
-        {{'STORE_NAME'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
-  <div class="form-control-group">
     <label>{{'GOVERONRATE'|translate}}*:</label>
     <input type="text" placeholder="{{'GOVERONRATE'|translate}}" [(ngModel)]="user.governorate"
            class="align-self-center form-control" nbInput #governorate="ngModel" name="governorate"
@@ -145,9 +133,14 @@
       </p>
     </ng-container>
   </div>
+  <div class="form-control-group">
+    <label>{{'LOGO'|translate}}*:</label>
+    <input type="file" (change)="selectFile($event)"
+           class="align-self-center form-control" nbInput name="logo">
+  </div>
 
   <div class="form-control-group">
-    <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted">
+    <button nbButton fullWidth status="success" [disabled]="form.submitted || !form.valid" [class.btn-pulse]="form.submitted">
       {{'REGISTER'|translate}}
     </button>
   </div>

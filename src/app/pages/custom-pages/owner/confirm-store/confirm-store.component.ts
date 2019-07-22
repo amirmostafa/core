@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../../utils/services/user.service";
 import {UserModel} from "../../../../utils/models/user.model";
 import {HttpClient} from "@angular/common/http";
-import {LocalDataSource} from "ng2-smart-table";
 import {TranslateService} from "@ngx-translate/core";
 import {Router} from "@angular/router";
 import {ToasterService} from "../../../../utils/services/toaster.service";
@@ -40,10 +39,6 @@ export class ConfirmStoreComponent implements OnInit {
       position: 'right',
     },
     columns: {
-      logo: {
-        title: this.translate.instant('LOGO'),
-        type: 'string',
-      },
       id: {
         title: this.translate.instant('ID'),
         type: 'number',
@@ -58,6 +53,10 @@ export class ConfirmStoreComponent implements OnInit {
       },
       email: {
         title: this.translate.instant('EMAIL'),
+        type: 'string',
+      },
+      mobile: {
+        title: this.translate.instant('MOBILE'),
         type: 'string',
       },
       commercialRegister: {

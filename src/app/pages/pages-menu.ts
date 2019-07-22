@@ -8,7 +8,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'ADD_USER',
-    icon: 'nb-e-commerce',
+    icon: 'nb-person',
     link: '/pages/add-user',
     home: true,
   },
