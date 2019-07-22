@@ -6,7 +6,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {EventService} from './event.service';
 import {NbToastStatus} from "@nebular/theme/components/toastr/model";
 import {ToasterService} from "./toaster.service";
-import {Observable} from "rxjs/Observable";
+import { NbLayoutDirectionService, NbLayoutDirection } from '@nebular/theme';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class UserService {
               private router: Router,
               private translate: TranslateService,
               private eventService: EventService<any>,
-              private toaster: ToasterService) {
+              private toaster: ToasterService,
+              private directionService: NbLayoutDirectionService) {
   }
 
   getCurrentUser() {
@@ -42,12 +43,14 @@ export class UserService {
     this.translate.setDefaultLang(this.currentUser.language);
 
     if (this.currentUser.language === 'ar') {
-      document.body.classList.add('rtl');
+      // document.body.classList.add('rtl');
+      this.directionService.setDirection(NbLayoutDirection.RTL);
     } else {
-      document.body.classList.remove('rtl');
+      // document.body.classList.remove('rtl');
+      this.directionService.setDirection(NbLayoutDirection.LTR);
     }
     this.eventService.broadcastEvent('language', this.currentUser.language);
-    this.http.post('user/update', this.currentUser).subscribe();
+    this.http.get('user/changeLanguage/'+ this.currentUser.id+'/'+this.currentUser.language).subscribe();
   }
 
   switchLanguageWithoutSave(lang) {
