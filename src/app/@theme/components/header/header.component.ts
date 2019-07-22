@@ -29,6 +29,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
+    // console.log(this.translate.instant('ADD_USER'));
+
   }
 
   toggleSidebar(): boolean {
@@ -46,7 +48,7 @@ export class HeaderComponent implements OnInit {
     this.analyticsService.trackEvent('startSearch');
   }
   switchLanguage() {
-    this.user.language = this.user.language === 'en' ? 'ar' : 'en';
-    this.userService.switchLanguageWithoutSave(this.user.language);
+    // this.user.language = this.user.language === 'en' ? 'ar' : 'en';
+    this.userService.switchLanguage();
   }
 }
