@@ -4,13 +4,13 @@
 
 :host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom {
   display: inline-block;
-  width: 50px;
+  width: 43px;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.4em !important;
 }
 
 :host /deep/ ng2-st-tbody-custom a.ng2-smart-action.ng2-smart-action-custom-custom:hover {
-  color: #5dcfe3;
+  color: #2ee56b;
 }
 
 :host /deep/ ng2-smart-table thead th{
@@ -23,10 +23,19 @@
 }
 
 
-:host /deep/ nb-card-header {
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-assign i.ion-checkmark{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-assign i.ion-close{display:none;}
+
+:host /deep/ .ng2-smart-filter  select.form-control {
+  height: auto !important;
+}
+
+
+:host /deep/ a:hover, :host /deep/ a:focus {
   color: #40dc7e !important;
 }
 
-:host /deep/ a:hover, :host /deep/  a:focus {
+
+:host /deep/ nb-card-header {
   color: #40dc7e !important;
 }

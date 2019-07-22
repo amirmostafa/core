@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import { MENU_ITEMS } from './pages-menu';
+import {UserService} from "../utils/services/user.service";
+import {STORE_ITEMS} from "./store-menu";
+import {DELEGATE_ITEMS} from "./delegate-menu";
 
 @Component({
   selector: 'ngx-pages',
@@ -12,7 +15,15 @@ import { MENU_ITEMS } from './pages-menu';
     </ngx-sample-layout>
   `,
 })
-export class PagesComponent {
+export class PagesComponent implements OnInit{
 
-  menu = MENU_ITEMS;
+  menu;
+
+  constructor(private userService: UserService){}
+
+  ngOnInit(){
+    this.menu =  this.userService.getCurrentUser().type === 'STORE' ? STORE_ITEMS :
+      this.userService.getCurrentUser().type === 'DELEGATE' ? DELEGATE_ITEMS : MENU_ITEMS;
+
+  }
 }

@@ -25,7 +25,17 @@
   "CITY":"City",
   "ADDRESS":"Address",
   "LANGUAGE":"Language",
-  "NAME":"Name"
+  "NAME":"Name",
+  "ID": "ID",
+  "TOTAL_AMOUNT": "Total Amount",
+  "DATE": "Date",
+  "COMMERCIAL_REGISTER": "Commercial Register",
+  "STATUS": "Status",
+  "ACTIONS": "Actions",
+  "DELIVERY_ADDRESS": "Delivery Address",
+  "ASSIGNED_TO": "Assigned To",
+  "ASSIGNED_TO_DELEGATE": "Assigned",
+  "REJECTED_BY_DELEGATE": "Rejected By Delegate"
 
 
 }

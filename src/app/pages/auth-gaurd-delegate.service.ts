@@ -8,7 +8,7 @@ import {ToasterService} from "../utils/services/toaster.service";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGaurdOwnerService implements CanActivate{
+export class AuthGaurdDelegateService implements CanActivate{
   constructor(private router: Router,
               private userService: UserService,
               private toaster: ToasterService) {
@@ -16,7 +16,7 @@ export class AuthGaurdOwnerService implements CanActivate{
 
   canActivate(): boolean {
     const user = this.userService.getCurrentUser();
-    if (user == null || user.type !== 'OWNER') {
+    if (user == null || user.type !== 'DELEGATE') {
       this.toaster.showToast(NbToastStatus.DANGER, 'UNAUTHORIZED', 'ERROR');
       return false;
     }

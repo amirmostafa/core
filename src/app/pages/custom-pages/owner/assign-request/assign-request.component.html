@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <span>{{'ASSIGN_REQUEST'|translate}}</span>
+  <button class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ng2-smart-table *ngIf="users" [settings]="settings" (custom)="customAction($event)"  [source]="users">
+  </ng2-smart-table>
+</div>

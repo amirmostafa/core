@@ -10,6 +10,7 @@ import {
 } from '@nebular/theme';
 
 import { StateService } from '../../../@core/utils';
+import {UserService} from "../../../utils/services/user.service";
 
 // TODO: move layouts into the framework
 @Component({
@@ -27,7 +28,7 @@ import { StateService } from '../../../@core/utils';
                    [end]="sidebar.id === 'end'">
         <nb-sidebar-header *ngIf="currentTheme !== 'corporate'">
           <a href="#" class="btn btn-hero-success main-btn">
-            <i class="ion ion-social-github"></i> <span>Support Us</span>
+            <i class="ion ion-person"></i> <span>{{type | translate}}</span>
           </a>
         </nb-sidebar-header>
         <ng-content select="nb-menu"></ng-content>
@@ -105,7 +106,7 @@ export class SampleLayoutComponent implements OnDestroy {
   ];
   layout: any = {};
   sidebar: any = {};
-
+  type;
   private alive = true;
 
   currentTheme: string;
@@ -114,7 +115,9 @@ export class SampleLayoutComponent implements OnDestroy {
               protected menuService: NbMenuService,
               protected themeService: NbThemeService,
               protected bpService: NbMediaBreakpointsService,
-              protected sidebarService: NbSidebarService) {
+              protected sidebarService: NbSidebarService,
+              private userService: UserService) {
+    this.type = this.userService.getCurrentUser().type;
     this.stateService.onLayoutState()
       .pipe(takeWhile(() => this.alive))
       .subscribe((layout: string) => this.layout = layout);
