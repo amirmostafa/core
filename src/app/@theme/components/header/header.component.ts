@@ -45,4 +45,8 @@ export class HeaderComponent implements OnInit {
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
   }
+  switchLanguage() {
+    this.user.language = this.user.language === 'en' ? 'ar' : 'en';
+    this.userService.switchLanguageWithoutSave(this.user.language);
+  }
 }
