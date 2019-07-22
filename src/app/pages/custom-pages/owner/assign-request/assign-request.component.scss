@@ -23,10 +23,10 @@
 }
 
 
-:host /deep/ nb-card-header {
-  color: #40dc7e !important;
+.modal-body{
+  min-height: 489px;
 }
 
-:host /deep/ a:hover, :host /deep/  a:focus {
+:host /deep/ nb-card-header {
   color: #40dc7e !important;
 }

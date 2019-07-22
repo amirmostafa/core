@@ -1,0 +1,177 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-6">
+        {{'REQUEST'|translate}}
+      </div>
+      <div class="col-md-6">
+        <div class="float-right">
+          <label class="text-success">{{request.status|translate}}</label>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body class="custom-card">
+    <div class="form-group d-flex flex-column align-items-center">
+      <div class="d-flex w-100 justify-content-center">
+        <form class="w-100" (ngSubmit)="addRequest()" #form="ngForm">
+          <fieldset class="d-flex" [disabled]="disabled">
+            <div class="d-flex">
+              <div class="col-md-6 col-6">
+                <div class="d-flex pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'PRODUCT_NAME'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9 input-group">
+                    <input type="text" placeholder="{{'PRODUCT_NAME'|translate}}" [(ngModel)]="request.name"
+                           class="align-self-center form-control" nbInput #name="ngModel" name="name" id="input-name"
+                           autofocus [status]="name.dirty ? (name.invalid  ? 'danger' : 'success') : ''" required
+                           [attr.aria-invalid]="name.invalid && name.touched ? true : null">
+                    <ng-container *ngIf="name.invalid && name.touched">
+                      <p class="error-message" *ngIf="name.errors?.required">
+                        {{'PRODUCT_NAME'|translate}} {{'IS_REQUIRED'|translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-6">
+                <div class="d-flex  pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'PRODUCT_DESCRIPTION'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                    <textarea placeholder="{{'PRODUCT_DESCRIPTION'|translate}}" [(ngModel)]="request.description"
+                              class="align-self-center form-control" nbInput #description="ngModel" name="description"
+                              autofocus
+                              [status]="description.dirty ? (description.invalid  ? 'danger' : 'success') : ''" required
+                              [attr.aria-invalid]="description.invalid && description.touched ? true : null"></textarea>
+                      <ng-container *ngIf="description.invalid && description.touched">
+                        <p class="error-message" *ngIf="description.errors?.required">
+                          {{'PRODUCT_DESCRIPTION'|translate}} {{'IS_REQUIRED'|translate}}
+                        </p>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="col-md-6 col-6">
+                <div class="d-flex pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'DATE'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input datepicker-localdate  type="text" [nbDatepicker]="formpicker" placeholder="{{'DATE'|translate}}"
+                             [(ngModel)]="request.date"
+                             class="align-self-center form-control" nbInput #date="ngModel" name="date"
+                             autofocus [status]="date.dirty ? (date.invalid  ? 'danger' : 'success') : ''" required
+                             [attr.aria-invalid]="date.invalid && date.touched ? true : null">
+                      <nb-datepicker #formpicker></nb-datepicker>
+
+                    </div>
+
+                    <ng-container *ngIf="date.invalid && date.touched">
+                      <p class="error-message" *ngIf="date.errors?.required">
+                        {{'DATE'|translate}} {{'IS_REQUIRED'|translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-6">
+                <div class="d-flex pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'TIME'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="time" placeholder="{{'TIME'|translate}}" [(ngModel)]="request.time"
+                             class="align-self-center form-control" nbInput #time="ngModel" name="time"
+                             autofocus [status]="time.dirty ? (time.invalid  ? 'danger' : 'success') : ''" required
+                             [attr.aria-invalid]="time.invalid && time.touched ? true : null">
+                    </div>
+                    <ng-container *ngIf="time.invalid && time.touched">
+                      <p class="error-message" *ngIf="time.errors?.required">
+                        {{'TIME'|translate}} {{'IS_REQUIRED'|translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="d-flex">
+              <div class="col-md-6 col-6">
+                <div class="d-flex pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'TOTAL_AMOUNT'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="number" placeholder="{{'TOTAL_AMOUNT'|translate}}" [(ngModel)]="request.totalAmount"
+                             class="align-self-center form-control" nbInput #totalAmount="ngModel" name="totalAmount"
+                             autofocus [status]="totalAmount.dirty ? (totalAmount.invalid  ? 'danger' : 'success') : ''"
+                             required
+                             [attr.aria-invalid]="totalAmount.invalid && totalAmount.touched ? true : null">
+                    </div>
+                    <ng-container *ngIf="totalAmount.invalid && totalAmount.touched">
+                      <p class="error-message" *ngIf="totalAmount.errors?.required">
+                        {{'TOTAL_AMOUNT'|translate}} {{'IS_REQUIRED'|translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-6">
+                <div class="d-flex pb-4">
+                  <div class="col-md-3 align-self-center">
+                    <label>{{'DELIVERY_ADDRESS'|translate}}:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="input-group">
+                      <input type="text" placeholder="{{'DELIVERY_ADDRESS'|translate}}"
+                             [(ngModel)]="request.deliveryAddress"
+                             class="align-self-center form-control" nbInput #deliveryAddress="ngModel"
+                             name="deliveryAddress"
+                             autofocus
+                             [status]="deliveryAddress.dirty ? (deliveryAddress.invalid  ? 'danger' : 'success') : ''"
+                             required
+                             [attr.aria-invalid]="deliveryAddress.invalid && deliveryAddress.touched ? true : null">
+                    </div>
+                    <ng-container *ngIf="deliveryAddress.invalid && deliveryAddress.touched">
+                      <p class="error-message" *ngIf="deliveryAddress.errors?.required">
+                        {{'DELIVERY_ADDRESS'|translate}} {{'IS_REQUIRED'|translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="d-flex pt-5">
+            <div class="col-md-12">
+              <div class="d-flex">
+                <div class="col-md-12">
+                  <div class="btn-group float-right">
+                    <button *ngIf="!disabled" class="mr-3" nbButton fullWidth status="success"
+                            [disabled]="submitted || !form.valid"
+                            [class.btn-pulse]="submitted">
+                      {{'ADD_request'|translate}}
+                    </button>
+                    <button type="button" nbButton (click)="cancel()" fullWidth status="danger">
+                      {{'CANCEL'|translate}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

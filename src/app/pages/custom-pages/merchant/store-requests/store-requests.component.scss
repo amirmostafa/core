@@ -23,10 +23,20 @@
 }
 
 
+
+:host /deep/ a:hover, :host /deep/ a:focus {
+  color: #40dc7e !important;
+}
+
+
 :host /deep/ nb-card-header {
   color: #40dc7e !important;
 }
 
-:host /deep/ a:hover, :host /deep/  a:focus {
+:host /deep/ nb-actions.medium nb-action i.control-icon {
   color: #40dc7e !important;
+}
+
+:host /deep/ nb-actions.medium nb-action i.control-icon:hover {
+  font-weight: bold !important;
 }

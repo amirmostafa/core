@@ -39,13 +39,6 @@ export class ConfirmStoreComponent implements OnInit {
       ],
       position: 'right',
     },
-    custom: {
-      inputClass: '',
-      editButtonContent: 'Edit',
-      saveButtonContent: 'Update',
-      cancelButtonContent: 'Cancel',
-      confirmSave: false,
-    },
     columns: {
       logo: {
         title: this.translate.instant('LOGO'),

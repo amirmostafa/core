@@ -1,0 +1,10 @@
+<nb-card>
+  <nb-card-header>
+    {{'REQUESTS'|translate}}
+  </nb-card-header>
+
+  <nb-card-body class="custom-card">
+    <ng2-smart-table *ngIf="requests" [settings]="settings" (custom)="customAction($event)" [source]="requests">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

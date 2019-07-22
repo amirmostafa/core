@@ -16,6 +16,14 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {APP_BASE_HREF} from "@angular/common";
 import {UiFeaturesModule} from "./ui-features/ui-features.module";
 import { ViewProfileComponent } from './custom-pages/view-profile/view-profile.component';
+import { StoreRequestsComponent } from './custom-pages/merchant/store-requests/store-requests.component';
+import { AddRequestComponent } from './custom-pages/merchant/add-request/add-request.component';
+import {ButtonsModule} from "./forms/buttons/buttons.module";
+import {OwnerRequestsComponent} from "./custom-pages/owner/requests/owner-requests.component";
+import {BootstrapModule} from "./bootstrap/bootstrap.module";
+import { AssignRequestComponent } from './custom-pages/owner/assign-request/assign-request.component';
+import {DelegateRequestsComponent} from "./custom-pages/delegate/requests/delegate-requests.component";
+import { RedirectorComponent } from './custom-pages/redirector/redirector.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -34,11 +42,19 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     ToasterModule.forRoot(),
     Ng2SmartTableModule,
-    UiFeaturesModule
+    UiFeaturesModule,
+    ButtonsModule,
+    BootstrapModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
-    ViewProfileComponent ],
+    ViewProfileComponent,
+    StoreRequestsComponent,
+    AddRequestComponent,
+    OwnerRequestsComponent,
+    AssignRequestComponent,
+    DelegateRequestsComponent,
+    RedirectorComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     {
@@ -46,6 +62,9 @@ const PAGES_COMPONENTS = [
       useClass: HTTPInterceptorImp,
       multi: true
     }
+  ],
+  entryComponents: [
+    AssignRequestComponent,
   ]
 })
 export class PagesModule {
