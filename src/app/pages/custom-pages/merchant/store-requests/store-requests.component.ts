@@ -16,7 +16,6 @@ import {RequestModel} from "../../../../utils/models/request.model";
 export class StoreRequestsComponent implements OnInit {
 
   settings = {
-    hideSubHeader: true,
     actions: {
       columnTitle: this.translate.instant('ACTIONS'),
       add: false,
@@ -39,27 +38,55 @@ export class StoreRequestsComponent implements OnInit {
       id: {
         title: this.translate.instant('ID'),
         type: 'number',
+        width: '9%'
       },
       name: {
         title: this.translate.instant('NAME'),
         type: 'string',
+        width: '12%'
       },
       date: {
         title: this.translate.instant('DATE'),
         type: 'string',
+        width: '12%'
       },
       totalAmount: {
         title: this.translate.instant('TOTAL_AMOUNT'),
         type: 'number',
+        width: '12%'
       },
       deliveryAddress: {
         title: this.translate.instant('DELIVERY_ADDRESS'),
         type: 'string',
+        width: '15%'
       },
-      status: {
+      statusLocalized: {
         title: this.translate.instant('STATUS'),
         type: 'string',
+        width: '15%',
+        filterFunction(cell?: any, search?: string): boolean {
+          return cell === search;
+        },
+        filter: {
+          type: 'list',
+          config: {
+            selectText: this.translate.instant('ALL'),
+            list: [
+              { value: this.translate.instant('NEW'), title: this.translate.instant('NEW') },
+              { value: this.translate.instant('REJECTED'), title: this.translate.instant('REJECTED') },
+              { value: this.translate.instant('ASSIGNED_TO_DELEGATE'), title: this.translate.instant('ASSIGNED_TO_DELEGATE') },
+              { value: this.translate.instant('ACCEPTED_BY_DELEGATE'), title: this.translate.instant('ACCEPTED_BY_DELEGATE') },
+              { value: this.translate.instant('REJECTED_BY_DELEGATE'), title: this.translate.instant('REJECTED_BY_DELEGATE') },
+              { value: this.translate.instant('DELIVERED'), title: this.translate.instant('DELIVERED') },
+            ]
+          }
+        }
       },
+      assignedtoName: {
+        title: this.translate.instant('DELEGATE'),
+        type: 'string',
+        width: '12%'
+      }
     },
   };
 
@@ -78,6 +105,9 @@ export class StoreRequestsComponent implements OnInit {
 
   init() {
     this.http.get('request/listRequestsForCurrentUser/' + this.userService.getCurrentUser().id).subscribe((data: RequestModel[]) => {
+      for(let i=0;i< data['requestModels'].length;i++){
+        data['requestModels'][i].statusLocalized = this.translate.instant(data['requestModels'][i].status);
+      }
       this.requests = data['requestModels'];
     })
   }

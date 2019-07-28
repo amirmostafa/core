@@ -35,7 +35,7 @@
   "ACTIONS": "انشطة",
   "DELIVERY_ADDRESS": "عنوان التسليم",
   "ASSIGNED_TO": "تم التعين",
-  "ASSIGNED_TO_DELEGATE": "تم التعين الى مندب",
+  "ASSIGNED_TO_DELEGATE": "تم التعيين الى مندوب",
   "REJECTED_BY_DELEGATE": "رفض من قبل المندوب",
   "PROFILE":"الملف الشخصي",
   "LOG_OUT":"تسجيل الخروخ",
@@ -46,7 +46,7 @@
   "STORE":"المتجر",
   "SITE_NAME":"Speed Road",
   "FOOTER_MESSAGE":"جميع الحقوق محفوظة ، حقوق الطبع والنشر © 2019",
-  "CONFIRM_NEW_STORES":"Confirm New Stores",
+  "CONFIRM_NEW_STORES":"تفعيل متاجر جديدة",
   "ASSIGN":"تعيين",
   "REJECT":"رفض",
   "PRODUCT_NAME":"اسم المنتج",
@@ -89,5 +89,6 @@
   "ADD_REQUEST":"اضافة طلب",
   "APPROVE":"الموافقة",
   "USERNAME":"اسم المستخدم",
-  "DELEGATE_REQUESTS":"طلبات المندوب"
+  "DELEGATE_REQUESTS":"طلبات المندوب",
+  "ASSIGN_REQUEST": "تعيين طلب"
 }

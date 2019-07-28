@@ -49,7 +49,7 @@ export class AssignRequestComponent implements OnInit {
   settings = {
     hideSubHeader: true,
     actions: {
-      columnTitle: this.translate.instant('ACTIONS'),
+      columnTitle: this.translate.instant('ASSIGN'),
       add: false,
       edit: false,
       delete: false,
@@ -62,10 +62,6 @@ export class AssignRequestComponent implements OnInit {
       position: 'right',
     },
     columns: {
-      logo: {
-        title: this.translate.instant('LOGO'),
-        type: 'string',
-      },
       id: {
         title: this.translate.instant('ID'),
         type: 'number',

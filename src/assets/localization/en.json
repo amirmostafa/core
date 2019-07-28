@@ -89,6 +89,7 @@
   "ADD_REQUEST":"Add Request",
   "APPROVE":"Approve",
   "USERNAME":"User Name",
-  "DELEGATE_REQUESTS":"Delegate Requests"
+  "DELEGATE_REQUESTS":"Delegate Requests",
+  "ASSIGN_REQUEST": "Assign Request"
 
 }
