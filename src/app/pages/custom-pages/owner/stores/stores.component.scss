@@ -23,26 +23,21 @@
 }
 
 
-
-:host /deep/ a:hover, :host /deep/ a:focus {
-  color: #40dc7e !important;
-}
-
-
 :host /deep/ nb-card-header {
   color: #40dc7e !important;
 }
 
-:host /deep/ nb-actions.medium nb-action i.control-icon {
+:host /deep/ a:hover, :host /deep/  a:focus {
   color: #40dc7e !important;
 }
 
-:host /deep/ nb-actions.medium nb-action i.control-icon:hover {
-  font-weight: bold !important;
-}
 
 :host /deep/ .ng2-smart-filter  select.form-control {
   height: auto !important;
 }
 
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-edit i.ion-edit{display:none;}
+//
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-assign a i.ion-checkmark{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.show-assign a i.ion-close{display:none;}
+
+

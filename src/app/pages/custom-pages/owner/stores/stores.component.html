@@ -1,0 +1,10 @@
+<nb-card>
+  <nb-card-header>
+    {{'STORES'|translate}}
+  </nb-card-header>
+
+  <nb-card-body class="custom-card">
+    <ng2-smart-table *ngIf="stores" [settings]="settings" (custom)="customAction($event)"  [source]="stores">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

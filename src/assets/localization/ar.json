@@ -90,5 +90,16 @@
   "APPROVE":"الموافقة",
   "USERNAME":"اسم المستخدم",
   "DELEGATE_REQUESTS":"طلبات المندوب",
-  "ASSIGN_REQUEST": "تعيين طلب"
+  "ASSIGN_REQUEST": "تعيين طلب",
+  "EDIT": "تعديل",
+  "ACTIVE": "نشط",
+  "IN_ACTIVE": "غير نشط",
+  "STORES": "متاجر",
+  "REQUEST_TIME_ARRIVAL": "وقت وصول الطلب",
+  "USER_REJECTED_SUCCESSFULLY": "تم رفض المستخدم بنجاح",
+  "USER_DELETED_SUCCESSFULLY": "تم حذف المستخدم بنجاح",
+  "SITE_ADMIN_CANT_BE_DELETED": "لا يمكن حذف المسئول عن الموقع",
+  "VIEW_REQUESTS": "عرض الطلبات",
+  "USERS": "المستخدمين",
+  "TYPE": "النوع"
 }

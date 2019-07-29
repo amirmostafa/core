@@ -7,10 +7,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/requests',
   },
   {
-    title: 'ADD_USER',
+    title: 'STORES',
+    icon: 'nb-home',
+    link: '/pages/stores',
+  },
+
+  {
+    title: 'USERS',
     icon: 'nb-person',
-    link: '/pages/add-user',
-    home: true,
+    link: '/pages/users',
   },
   {
     title: 'CONFIRM_NEW_STORES',

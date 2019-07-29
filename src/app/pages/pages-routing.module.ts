@@ -14,6 +14,8 @@ import {OwnerRequestsComponent} from "./custom-pages/owner/requests/owner-reques
 import {AuthGaurdDelegateService} from "./auth-gaurd-delegate.service";
 import {DelegateRequestsComponent} from "./custom-pages/delegate/requests/delegate-requests.component";
 import {RedirectorComponent} from "./custom-pages/redirector/redirector.component";
+import {StoresComponent} from "./custom-pages/owner/stores/stores.component";
+import {UsersComponent} from "./custom-pages/owner/users/users.component";
 
 const routes: Routes = [{
   path: '',
@@ -53,14 +55,25 @@ const routes: Routes = [{
       canActivate: [AuthGaurdStoreService]
     },
     {
-      path: 'add-request/:id',
+      path: 'add-request/:id/:disable',
       component: AddRequestComponent
     },
     {
       path: 'delegate-requests',
       component: DelegateRequestsComponent,
       canActivate: [AuthGaurdDelegateService]
-    }, {
+    },
+    {
+      path: 'stores',
+      component: StoresComponent,
+      canActivate: [AuthGaurdOwnerService]
+    },
+    {
+      path: 'users',
+      component: UsersComponent,
+      canActivate: [AuthGaurdOwnerService]
+    },
+    {
       path: '',
       component: RedirectorComponent
     }, {

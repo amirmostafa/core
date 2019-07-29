@@ -13,7 +13,7 @@ import {UserService} from "../../../../utils/services/user.service";
 export class AddRequestComponent implements OnInit {
   request = new RequestModel();
   disabled = false;
-
+  edit = false;
   constructor(private http: HttpClient,
               private router: Router,
               private toaster: ToasterService,
@@ -26,7 +26,8 @@ export class AddRequestComponent implements OnInit {
     if (id) {
       this.http.get('request/getRequest/' + id).subscribe((data: RequestModel) => {
         this.request = data;
-        this.disabled = true;
+        this.disabled = this.activateRoute.snapshot.params['disable'] === "true";
+        this.edit = !this.disabled;
       })
     } else {
       this.request.status = 'NEW';
@@ -37,7 +38,7 @@ export class AddRequestComponent implements OnInit {
     const request = JSON.parse(JSON.stringify(this.request));
     request.userModel = this.userService.getCurrentUser();
     request.date = this.getFormattedDate(new Date(this.request.date));
-    this.http.post('request/create', request).subscribe(() => {
+    this.http.post(this.edit? 'request/edit' : 'request/create', request).subscribe(() => {
       this.toaster.showToast(NbToastStatus.SUCCESS, 'DATA_SAVED_SUCCESSFULLY');
       this.router.navigate(['/pages/store-requests']);
     });

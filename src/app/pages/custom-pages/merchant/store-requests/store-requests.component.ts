@@ -16,6 +16,12 @@ import {RequestModel} from "../../../../utils/models/request.model";
 export class StoreRequestsComponent implements OnInit {
 
   settings = {
+    rowClassFunction: (row) => {
+      if (row.data.status !== 'NEW') {
+        return 'hide-edit';
+      }
+      return '';
+    },
     actions: {
       columnTitle: this.translate.instant('ACTIONS'),
       add: false,
@@ -26,10 +32,13 @@ export class StoreRequestsComponent implements OnInit {
           name: 'view',
           title: '<i class="ion-eye" title="' + this.translate.instant('VIEW') + '"></i>'
         },
-
         {
           name: 'delete',
           title: '<i class="ion-trash-a" title="' + this.translate.instant('DELETE') + '"></i>'
+        },
+        {
+          name: 'edit',
+          title: '<i class="ion-edit" title="' + this.translate.instant('EDIT') + '"></i>'
         }
       ],
       position: 'right',
@@ -120,6 +129,9 @@ export class StoreRequestsComponent implements OnInit {
       case 'delete':
         this.delete(event.data.id);
         return;
+      case 'edit':
+        this.edit(event.data);
+        return;
     }
 
   }
@@ -132,7 +144,10 @@ export class StoreRequestsComponent implements OnInit {
   }
 
   view(data){
-    this.router.navigate(['/pages/add-request/' + data.id]);
+    this.router.navigate(['/pages/add-request/' + data.id + '/true']);
+  }
+  edit(data){
+    this.router.navigate(['/pages/add-request/' + data.id + '/false']);
   }
   addRequest() {
     this.router.navigate(['/pages/add-request']);

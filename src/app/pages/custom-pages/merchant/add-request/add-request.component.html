@@ -89,7 +89,7 @@
                   </div>
                   <div class="col-md-9">
                     <div class="input-group">
-                      <input type="time" placeholder="{{'TIME'|translate}}" [(ngModel)]="request.time"
+                      <input type="time" placeholder="{{'REQUEST_TIME_ARRIVAL'|translate}}" [(ngModel)]="request.time"
                              class="align-self-center form-control" nbInput #time="ngModel" name="time"
                              autofocus [status]="time.dirty ? (time.invalid  ? 'danger' : 'success') : ''" required
                              [attr.aria-invalid]="time.invalid && time.touched ? true : null">
@@ -160,7 +160,7 @@
                     <button *ngIf="!disabled" class="mr-3" nbButton fullWidth status="success"
                             [disabled]="submitted || !form.valid"
                             [class.btn-pulse]="submitted">
-                      {{'ADD_REQUEST'|translate}}
+                      {{'SAVE'|translate}}
                     </button>
                     <button type="button" nbButton (click)="cancel()" fullWidth status="danger">
                       {{'CANCEL'|translate}}

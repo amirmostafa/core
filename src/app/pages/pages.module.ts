@@ -24,6 +24,8 @@ import {BootstrapModule} from "./bootstrap/bootstrap.module";
 import { AssignRequestComponent } from './custom-pages/owner/assign-request/assign-request.component';
 import {DelegateRequestsComponent} from "./custom-pages/delegate/requests/delegate-requests.component";
 import { RedirectorComponent } from './custom-pages/redirector/redirector.component';
+import {StoresComponent} from "./custom-pages/owner/stores/stores.component";
+import {UsersComponent} from "./custom-pages/owner/users/users.component";
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -54,7 +56,9 @@ const PAGES_COMPONENTS = [
     OwnerRequestsComponent,
     AssignRequestComponent,
     DelegateRequestsComponent,
-    RedirectorComponent],
+    RedirectorComponent,
+    StoresComponent,
+    UsersComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     {
