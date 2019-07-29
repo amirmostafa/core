@@ -14,8 +14,8 @@ import {OwnerRequestsComponent} from "./custom-pages/owner/requests/owner-reques
 import {AuthGaurdDelegateService} from "./auth-gaurd-delegate.service";
 import {DelegateRequestsComponent} from "./custom-pages/delegate/requests/delegate-requests.component";
 import {RedirectorComponent} from "./custom-pages/redirector/redirector.component";
-import {StoresComponent} from "./custom-pages/owner/stores/stores.component";
-import {UsersComponent} from "./custom-pages/owner/users/users.component";
+import {StoresComponent} from "./custom-pages/owner/storess/stores.component";
+import {UsersComponent} from "./custom-pages/owner/userss/users.component";
 
 const routes: Routes = [{
   path: '',

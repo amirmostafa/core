@@ -101,7 +101,8 @@
   "SITE_ADMIN_CANT_BE_DELETED": "Site Admin can't be deleted",
   "VIEW_REQUESTS": "View Requests",
   "USERS": "Users",
-  "TYPE": "Type"
+  "TYPE": "Type",
+  "USER_CANT_BE_DELETED": "User can't be deleted because he has requests"
 
 
 }

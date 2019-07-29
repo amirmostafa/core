@@ -15,6 +15,7 @@ export class ViewProfileComponent implements OnInit {
 
   user: UserModel;
   disabled = false;
+  editParam = false;
   constructor(private activateRoute: ActivatedRoute,
               private http: HttpClient,
               private userService: UserService,
@@ -23,6 +24,7 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit() {
     const id = this.activateRoute.snapshot.params['id'];
     if(id){
+      this.editParam = this.activateRoute.snapshot.params['edit'];
       this.http.get('user/getUser/' + id).subscribe((data: UserModel)=>{
         this.user = data;
         this.disabled = true;

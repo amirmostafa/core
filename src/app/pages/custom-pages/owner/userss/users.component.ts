@@ -127,7 +127,7 @@ export class UsersComponent implements OnInit {
   }
 
   init() {
-    this.http.get('user/listNotStoresUsers').subscribe((data) => {
+    this.http.get('user/listNotStoresUsers/' + this.userService.getCurrentUser().id).subscribe((data) => {
       for (let i = 0; i < data['userModels'].length; i++) {
         data['userModels'][i].status = data['userModels'][i].active === true ?
           this.translate.instant('ACTIVE') : this.translate.instant('IN_ACTIVE');
