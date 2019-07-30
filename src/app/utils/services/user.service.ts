@@ -76,28 +76,31 @@ export class UserService {
     return this.http.request(req);
   }
 
-  register(user: UserModel, fileUpload: File, redirectToLogin?: boolean) {
+  register(user: UserModel, fileUpload: File, redirectToLogin?: boolean, redirectToUsers?: boolean) {
     if (user.password !== user.confirmPassword) {
       this.toaster.showToast(NbToastStatus.DANGER, 'PASSWORDS_DONT_MATCHES');
       return;
     }
     if (!fileUpload) {
-      this.doRegister(redirectToLogin, user)
+      this.doRegister(redirectToLogin, user, redirectToUsers)
     } else {
       this.pushFileToStorage(fileUpload).subscribe((event) => {
         if (event instanceof HttpResponse) {
           user.avatar = event.body['payload'];
-          this.doRegister(redirectToLogin, user);
+          this.doRegister(redirectToLogin, user, redirectToUsers);
         }
       });
     }
   }
 
-  doRegister(redirectToLogin, user) {
+  doRegister(redirectToLogin, user, redirectToUsers) {
     this.http.post('user/register', user).subscribe(() => {
       this.toaster.showToast(NbToastStatus.SUCCESS, 'DATA_SAVED_SUCCESSFULLY');
       if (redirectToLogin) {
         this.router.navigate(['/auth/login']);
+      }
+      if(redirectToUsers){
+        this.router.navigate(['/pages/users']);
       }
     });
   }

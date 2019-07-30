@@ -99,7 +99,7 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
   }
 
   view(data) {
-    this.router.navigate(['/pages/add-request/' + data.id]);
+    this.router.navigate(['/pages/add-request/' + data.id + '/true']);
   }
 
   assign(data) {
