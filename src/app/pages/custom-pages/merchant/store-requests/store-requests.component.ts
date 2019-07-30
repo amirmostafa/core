@@ -87,6 +87,7 @@ export class StoreRequestsComponent implements OnInit {
               { value: this.translate.instant('ACCEPTED_BY_DELEGATE'), title: this.translate.instant('ACCEPTED_BY_DELEGATE') },
               { value: this.translate.instant('REJECTED_BY_DELEGATE'), title: this.translate.instant('REJECTED_BY_DELEGATE') },
               { value: this.translate.instant('DELIVERED'), title: this.translate.instant('DELIVERED') },
+              { value: this.translate.instant('REJECTED_BY_CLIENT'), title: this.translate.instant('REJECTED_BY_CLIENT') },
             ]
           }
         }

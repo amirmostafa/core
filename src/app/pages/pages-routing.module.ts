@@ -36,7 +36,7 @@ const routes: Routes = [{
       component: ViewProfileComponent
     },
     {
-      path: 'view-profile/:id',
+      path: 'view-profile/:id/:edit',
       component: ViewProfileComponent
     },
     {
@@ -46,6 +46,11 @@ const routes: Routes = [{
     },
     {
       path: 'requests',
+      component: OwnerRequestsComponent,
+      canActivate: [AuthGaurdOwnerService]
+    },
+    {
+      path: 'requests/:type/:id',
       component: OwnerRequestsComponent,
       canActivate: [AuthGaurdOwnerService]
     },

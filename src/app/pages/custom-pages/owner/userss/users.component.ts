@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../../utils/services/user.service";
-import {UserModel} from "../../../../utils/models/user.model";
 import {HttpClient} from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {Router} from "@angular/router";
@@ -29,24 +28,24 @@ export class UsersComponent implements OnInit {
       delete: false,
       custom: [
         {
+          name: 'approve',
+          title: '<i class="ion-checkmark" title="' + this.translate.instant('APPROVE') + '"></i>'
+        },
+        {
           name: 'edit',
           title: '<i class="ion-edit" title="' + this.translate.instant('EDIT') + '"></i>'
         },
         {
           name: 'view-requests',
-          title: '<i class="ion-eye" title="' + this.translate.instant('VIEW_REQUESTS') + '"></i>'
-        },
-        {
-          name: 'approve',
-          title: '<i class="ion-checkmark" title="' + this.translate.instant('APPROVE') + '"></i>'
-        },
-        {
-          name: 'reject',
-          title: '<i class="ion-close" title="' + this.translate.instant('REJECT') + '"></i>'
+          title: '<i class="ion-document-text" title="' + this.translate.instant('VIEW_REQUESTS') + '"></i>'
         },
         {
           name: 'delete',
           title: '<i class="ion-trash-a" title="' + this.translate.instant('DELETE') + '"></i>'
+        },
+        {
+          name: 'reject',
+          title: '<i class="ion-close" title="' + this.translate.instant('REJECT') + '"></i>'
         }
       ],
       position: 'right',
@@ -55,7 +54,7 @@ export class UsersComponent implements OnInit {
       id: {
         title: this.translate.instant('ID'),
         type: 'number',
-        width: '8%'
+        width: '6%'
       },
       name: {
         title: this.translate.instant('NAME'),
@@ -80,7 +79,7 @@ export class UsersComponent implements OnInit {
       typeLocalized: {
         title: this.translate.instant('TYPE'),
         type: 'string',
-        width: '12%',
+        width: '9%',
         filter: {
           type: 'list',
           config: {
@@ -95,7 +94,7 @@ export class UsersComponent implements OnInit {
       status: {
         title: this.translate.instant('STATUS'),
         type: 'string',
-        width: '10%',
+        width: '9%',
         filterFunction(cell?: any, search?: string): boolean {
           return cell === search;
         },
@@ -139,8 +138,11 @@ export class UsersComponent implements OnInit {
 
   customAction(event) {
     switch (event.action) {
-      case 'view':
-        this.view(event.data);
+      case 'view-requests':
+        this.viewRequests(event.data);
+        return;
+      case 'edit':
+        this.edit(event.data);
         return;
       case 'approve':
         this.approve(event.data);
@@ -155,7 +157,7 @@ export class UsersComponent implements OnInit {
   }
 
   view(data) {
-    this.router.navigate(['/pages/view-profile/' + data.id]);
+    this.router.navigate(['/pages/view-profile/' + data.id + '/false']);
   }
 
   approve(data) {
@@ -177,5 +179,17 @@ export class UsersComponent implements OnInit {
       this.toaster.showToast(NbToastStatus.SUCCESS, this.translate.instant('USER_DELETED_SUCCESSFULLY'));
       this.init();
     });
+  }
+
+  addUser() {
+    this.router.navigate(['/pages/add-user']);
+  }
+
+  edit(data) {
+    this.router.navigate(['/pages/view-profile/' + data.id + '/true']);
+  }
+
+  viewRequests(data) {
+    this.router.navigate(['/pages/requests/'+data.type + '/' + data.id]);
   }
 }

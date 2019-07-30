@@ -47,6 +47,9 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
 
   customAction(event) {
     switch (event.action) {
+      case 'client-reject':
+        this.rejectByClient(event.data);
+        return;
       case 'view':
         this.view(event.data);
         return;
@@ -80,6 +83,13 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
     });
   }
 
+  rejectByClient(data) {
+    this.http.get('request/changeRequestStatus/REJECTED_BY_CLIENT/' + data.id).subscribe(() => {
+      this.toaster.showToast(NbToastStatus.SUCCESS, this.translate.instant('REQUEST_REJECTED_BY_CLIENT_SUCCESSFULLY'));
+      this.init();
+    });
+  }
+
   reject(data) {
     this.http.get('request/changeRequestStatus/REJECTED_BY_DELEGATE/' + data.id).subscribe(() => {
       this.toaster.showToast(NbToastStatus.SUCCESS, this.translate.instant('REQUEST_REJECTED_SUCCESSFULLY'));
@@ -100,7 +110,7 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
       if (row.data.status === 'REJECTED_BY_DELEGATE') {
         return 'hide-rejected';
       }
-      if (row.data.status === 'DELIVERED') {
+      if (row.data.status === 'DELIVERED' || row.data.status === 'REJECTED_BY_CLIENT') {
         return 'hide-delivered';
       }
 
@@ -119,6 +129,10 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
         {
           name: 'deliver',
           title: '<i class="ion-paper-airplane" title="' + this.translate.instant('DELIVER') + '"></i>'
+        },
+        {
+          name: 'client-reject',
+          title: '<i class="ion-minus-round" title="' + this.translate.instant('REJECTED_BY_CLIENT') + '"></i>'
         },
         {
           name: 'approve',
@@ -175,6 +189,7 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
               { value: this.translate.instant('ACCEPTED_BY_DELEGATE'), title: this.translate.instant('ACCEPTED_BY_DELEGATE') },
               { value: this.translate.instant('REJECTED_BY_DELEGATE'), title: this.translate.instant('REJECTED_BY_DELEGATE') },
               { value: this.translate.instant('DELIVERED'), title: this.translate.instant('DELIVERED') },
+              { value: this.translate.instant('REJECTED_BY_CLIENT'), title: this.translate.instant('REJECTED_BY_CLIENT') },
             ]
           }
         }

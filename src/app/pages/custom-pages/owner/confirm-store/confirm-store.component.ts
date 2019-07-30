@@ -100,7 +100,7 @@ export class ConfirmStoreComponent implements OnInit {
   }
 
   view(data) {
-    this.router.navigate(['/pages/view-profile/' + data.id]);
+    this.router.navigate(['/pages/view-profile/' + data.id + '/false']);
   }
 
   approve(data) {

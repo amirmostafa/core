@@ -29,20 +29,24 @@ export class StoresComponent implements OnInit {
       delete: false,
       custom: [
         {
-          name: 'view',
-          title: '<i class="ion-eye" title="' + this.translate.instant('VIEW') + '"></i>'
-        },
-        {
           name: 'approve',
           title: '<i class="ion-checkmark" title="' + this.translate.instant('APPROVE') + '"></i>'
         },
         {
-          name: 'reject',
-          title: '<i class="ion-close" title="' + this.translate.instant('REJECT') + '"></i>'
+          name: 'view',
+          title: '<i class="ion-eye" title="' + this.translate.instant('VIEW') + '"></i>'
+        },
+        {
+          name: 'view-requests',
+          title: '<i class="ion-document-text" title="' + this.translate.instant('VIEW_REQUESTS') + '"></i>'
         },
         {
           name: 'delete',
           title: '<i class="ion-trash-a" title="' + this.translate.instant('DELETE') + '"></i>'
+        },
+        {
+          name: 'reject',
+          title: '<i class="ion-close" title="' + this.translate.instant('REJECT') + '"></i>'
         }
       ],
       position: 'right',
@@ -76,7 +80,7 @@ export class StoresComponent implements OnInit {
       commercialRegister: {
         title: this.translate.instant('COMMERCIAL_REGISTER'),
         type: 'string',
-        width: '12%'
+        width: '10%'
       },
       status: {
         title: this.translate.instant('STATUS'),
@@ -124,6 +128,9 @@ export class StoresComponent implements OnInit {
 
   customAction(event) {
     switch (event.action) {
+      case 'view-requests':
+        this.viewRequests(event.data);
+        return;
       case 'view':
         this.view(event.data);
         return;
@@ -140,7 +147,7 @@ export class StoresComponent implements OnInit {
   }
 
   view(data) {
-    this.router.navigate(['/pages/view-profile/' + data.id]);
+    this.router.navigate(['/pages/view-profile/' + data.id + '/false']);
   }
 
   approve(data) {
@@ -162,5 +169,9 @@ export class StoresComponent implements OnInit {
       this.toaster.showToast(NbToastStatus.SUCCESS, this.translate.instant('USER_DELETED_SUCCESSFULLY'));
       this.init();
     });
+  }
+
+  viewRequests(data) {
+    this.router.navigate(['/pages/requests/'+data.type + '/' + data.id]);
   }
 }

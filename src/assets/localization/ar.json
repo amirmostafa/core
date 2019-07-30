@@ -102,5 +102,8 @@
   "VIEW_REQUESTS": "عرض الطلبات",
   "USERS": "المستخدمين",
   "TYPE": "النوع",
-  "USER_CANT_BE_DELETED": "لا يمكن حذف هذا المستخدم لأنه يمتلك طلبات"
+  "USER_CANT_BE_DELETED": "لا يمكن حذف هذا المستخدم لأنه يمتلك طلبات",
+  "EDIT_USER": "تعديل مستخدم",
+  "REJECTED_BY_CLIENT": "تم رفضها من العميل",
+  "REQUEST_REJECTED_BY_CLIENT_SUCCESSFULLY": "تم رفض الطلب من العميل"
 }

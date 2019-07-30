@@ -24,10 +24,10 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit() {
     const id = this.activateRoute.snapshot.params['id'];
     if(id){
-      this.editParam = this.activateRoute.snapshot.params['edit'];
+      this.editParam = this.activateRoute.snapshot.params['edit'] === 'true';
       this.http.get('user/getUser/' + id).subscribe((data: UserModel)=>{
         this.user = data;
-        this.disabled = true;
+        this.disabled = !this.editParam;
       })
     } else {
         this.user = this.userService.getCurrentUser();
@@ -37,8 +37,10 @@ export class ViewProfileComponent implements OnInit {
     this.http.post('user/update',this.user).subscribe(()=>{
       this.toaster.showToast(NbToastStatus.SUCCESS, 'DATA_SAVED_SUCCESSFULLY');
       this.http.get('user/getUser/' + this.user.id).subscribe((data: UserModel)=>{
-        this.userService.setCurrentUser(data);
-        sessionStorage.setItem('user', JSON.stringify(data));
+        if(!this.editParam) {
+          this.userService.setCurrentUser(data);
+          sessionStorage.setItem('user', JSON.stringify(data));
+        }
       })
     });
   }

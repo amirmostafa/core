@@ -1,6 +1,17 @@
 <nb-card>
   <nb-card-header>
-    {{'USERS'|translate}}
+    <div class="row">
+      <div class="col-md-6">
+        {{'USERS'|translate}}
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-end">
+          <nb-actions size="medium">
+            <nb-action icon="ion ion-plus" (click)="addUser()"></nb-action>
+          </nb-actions>
+        </div>
+      </div>
+    </div>
   </nb-card-header>
 
   <nb-card-body class="custom-card">

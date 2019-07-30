@@ -37,5 +37,23 @@
 }
 
 //
-//:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-assign a i.ion-checkmark{display:none;}
-//:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.show-assign a i.ion-close{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-assign a i.ion-checkmark{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.show-assign a i.ion-close{display:none;}
+
+
+:host /deep/ a:hover, :host /deep/ a:focus {
+  color: #40dc7e !important;
+}
+
+
+:host /deep/ nb-card-header {
+  color: #40dc7e !important;
+}
+
+:host /deep/ nb-actions.medium nb-action i.control-icon {
+  color: #40dc7e !important;
+}
+
+:host /deep/ nb-actions.medium nb-action i.control-icon:hover {
+  font-weight: bold !important;
+}

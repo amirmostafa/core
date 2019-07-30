@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {NbToastStatus} from "@nebular/theme/components/toastr/model";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../utils/services/user.service";
 import {ToasterService} from "../../../../utils/services/toaster.service";
 import {RequestModel} from "../../../../utils/models/request.model";
@@ -23,6 +23,7 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
   delegates: ValueTitlePairModel[];
   requests: RequestModel[];
   status = null;
+  url= null;
 
   constructor(private userService: UserService,
               private http: HttpClient,
@@ -30,7 +31,8 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
               private router: Router,
               private toaster: ToasterService,
               private modalService: NgbModal,
-              private eventService: EventService<any>) {
+              private eventService: EventService<any>,
+              private activateRoute: ActivatedRoute) {
   }
 
   showLargeModal(id) {
@@ -41,6 +43,11 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.listStores();
     // this.listDelegates();
+    const type = this.activateRoute.snapshot.params['type'];
+    if(type){
+      this.url = 'request/listRequestsByType/' + type+'/' + this.activateRoute.snapshot.params['id'];
+    }
+
     this.init();
     this.eventService.getEvent('ASSIGN_MODAL_CLOSED').subscribe(() => {
       this.init();
@@ -69,7 +76,7 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
 
 
   init() {
-    this.http.get('request/listRequestsByStatus/' + this.status).subscribe((data) => {
+    this.http.get(this.url || 'request/listRequestsByStatus/' + this.status).subscribe((data) => {
       for(let i=0;i< data['requestModels'].length;i++){
         data['requestModels'][i].statusLocalized = this.translate.instant(data['requestModels'][i].status);
       }
@@ -183,6 +190,7 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
               { value: this.translate.instant('ACCEPTED_BY_DELEGATE'), title: this.translate.instant('ACCEPTED_BY_DELEGATE') },
               { value: this.translate.instant('REJECTED_BY_DELEGATE'), title: this.translate.instant('REJECTED_BY_DELEGATE') },
               { value: this.translate.instant('DELIVERED'), title: this.translate.instant('DELIVERED') },
+              { value: this.translate.instant('REJECTED_BY_CLIENT'), title: this.translate.instant('REJECTED_BY_CLIENT') },
             ]
           }
         }
