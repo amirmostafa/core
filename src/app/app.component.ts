@@ -14,7 +14,7 @@ import { Router, NavigationEnd } from '@angular/router';
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
-
+  reloaded = false;
   constructor(private analytics: AnalyticsService,
               private translate: TranslateService,
               private userService: UserService,
@@ -34,6 +34,8 @@ export class AppComponent implements OnInit {
     });
     this.analytics.trackPageViews();
     const user = sessionStorage.getItem('user');
+    this.userService.switchLanguageWithoutSave('ar');
+
     if (user !== null) {
       this.userService.setCurrentUser(JSON.parse(user));
       this.userService.switchLanguageWithoutSave(this.userService.getCurrentUser().language);
