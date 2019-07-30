@@ -46,7 +46,7 @@ const PAGES_COMPONENTS = [
     Ng2SmartTableModule,
     UiFeaturesModule,
     ButtonsModule,
-    BootstrapModule
+    BootstrapModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,

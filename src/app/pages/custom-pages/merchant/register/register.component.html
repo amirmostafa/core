@@ -1,147 +1,155 @@
-<h1 id="title" class="title">{{'REGISTER_NEW_STORE'|translate}}</h1>
+<!-- <nb-card-header>
+  <nav class="navigation">
+    <a href="#" (click)="back()" class="link back-link" aria-label="Back">
+       <nb-icon icon="arrow-back"></nb-icon>
+      <span class="ion-arrow-left-c"></span>
+    </a>
+  </nav>
+</nb-card-header> -->
+  <h1 id="title" class="title">{{'REGISTER_NEW_STORE'|translate}}</h1>
 
-<form (ngSubmit)="register()" #form="ngForm">
-  <div class="form-control-group">
-    <label>{{'STORE_NAME'|translate}}*:</label>
-    <input type="text" placeholder="{{'STORE_NAME'|translate}}" [(ngModel)]="user.name"
-           class="align-self-center form-control" nbInput #storeName="ngModel" name="storeName" id="input-storeName"
-           autofocus [status]="storeName.dirty ? (storeName.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="storeName.invalid && storeName.touched ? true : null">
-    <ng-container *ngIf="storeName.invalid && storeName.touched">
-      <p class="error-message" *ngIf="storeName.errors?.required">
-        {{'STORE_NAME'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
-  <div class="form-control-group">
-    <label>{{'‎COMMERCIAL_REGISTER'|translate}}*:</label>
-    <input type="text" placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}"
-           [(ngModel)]="user.commercialRegister" class="align-self-center form-control" nbInput
-           #commercialRegister="ngModel" name="commercialRegister" id="input-commercialRegister" autofocus
-           [status]="commercialRegister.dirty ? (commercialRegister.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="commercialRegister.invalid && commercialRegister.touched ? true : null">
-    <ng-container *ngIf="commercialRegister.invalid && commercialRegister.touched">
-      <p class="error-message" *ngIf="commercialRegister.errors?.required">
-        {{'COMMERCIAL_REGISTER'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
-  <div class="form-control-group">
-    <label>{{'USER_NAME'|translate}}*:</label>
-    <input type="text" placeholder="{{'USER_NAME'|translate}}" [(ngModel)]="user.username" class="form-control" nbInput
-           #username="ngModel" name="username" id="input-username" autofocus
-           [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="username.invalid && username.touched ? true : null">
-    <ng-container *ngIf="username.invalid && username.touched ">
-      <p class="error-message" *ngIf="username.errors?.required">
-        {{'USER_NAME'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
-  <div class="form-control-group">
-    <label>{{'PASSWORD'|translate}}*:</label>
-    <input type="password" placeholder="{{'PASSWORD'|translate}}" [(ngModel)]="user.password" class="form-control"
-           nbInput #password="ngModel" name="password" id="input-password" autofocus
-           [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="password.invalid && password.touched ? true : null" [minlength]="6" [maxlength]="20">
-    <ng-container *ngIf="password.invalid && password.touched">
-      <p class="error-message" *ngIf="password.errors?.required">
-        {{'PASSWORD'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-      <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
-        {{'PASSWORD_ERROR_LENGTH'|translate}}
-      </p>
-    </ng-container>
-  </div>
+  <form (ngSubmit)="register()" #form="ngForm">
+    <div class="form-control-group">
+      <label>{{'STORE_NAME'|translate}}*:</label>
+      <input type="text" placeholder="{{'STORE_NAME'|translate}}" [(ngModel)]="user.name"
+        class="align-self-center form-control" nbInput #storeName="ngModel" name="storeName" id="input-storeName"
+        autofocus [status]="storeName.dirty ? (storeName.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="storeName.invalid && storeName.touched ? true : null">
+      <ng-container *ngIf="storeName.invalid && storeName.touched">
+        <p class="error-message" *ngIf="storeName.errors?.required">
+          {{'STORE_NAME'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="form-control-group">
+      <label>{{'‎COMMERCIAL_REGISTER'|translate}}*:</label>
+      <input type="text" placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}" [(ngModel)]="user.commercialRegister"
+        class="align-self-center form-control" nbInput #commercialRegister="ngModel" name="commercialRegister"
+        id="input-commercialRegister" autofocus
+        [status]="commercialRegister.dirty ? (commercialRegister.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="commercialRegister.invalid && commercialRegister.touched ? true : null">
+      <ng-container *ngIf="commercialRegister.invalid && commercialRegister.touched">
+        <p class="error-message" *ngIf="commercialRegister.errors?.required">
+          {{'COMMERCIAL_REGISTER'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="form-control-group">
+      <label>{{'USER_NAME'|translate}}*:</label>
+      <input type="text" placeholder="{{'USER_NAME'|translate}}" [(ngModel)]="user.username" class="form-control"
+        nbInput #username="ngModel" name="username" id="input-username" autofocus
+        [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="username.invalid && username.touched ? true : null">
+      <ng-container *ngIf="username.invalid && username.touched ">
+        <p class="error-message" *ngIf="username.errors?.required">
+          {{'USER_NAME'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="form-control-group">
+      <label>{{'PASSWORD'|translate}}*:</label>
+      <input type="password" placeholder="{{'PASSWORD'|translate}}" [(ngModel)]="user.password" class="form-control"
+        nbInput #password="ngModel" name="password" id="input-password" autofocus
+        [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="password.invalid && password.touched ? true : null" [minlength]="6" [maxlength]="20">
+      <ng-container *ngIf="password.invalid && password.touched">
+        <p class="error-message" *ngIf="password.errors?.required">
+          {{'PASSWORD'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+        <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+          {{'PASSWORD_ERROR_LENGTH'|translate}}
+        </p>
+      </ng-container>
+    </div>
 
-  <div class="form-control-group">
-    <label>{{'CONFIRM_PASSWORD'|translate}}*:</label>
-    <input type="password" placeholder="{{'CONFIRM_PASSWORD'|translate}}" [(ngModel)]="user.confirmPassword"
-           class="align-self-center form-control" nbInput #confirmPassword="ngModel" name="confirmPassword"
-           id="input-confirmPassword" autofocus
-           [status]="confirmPassword.dirty ? (confirmPassword.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="confirmPassword.invalid && confirmPassword.touched ? true : null" [minlength]="6"
-           [maxlength]="20">
-    <ng-container *ngIf="confirmPassword.invalid && confirmPassword.touched">
-      <p class="error-message" *ngIf="confirmPassword.errors?.required">
-        {{'CONFIRM_PASSWORD'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-      <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
-        {{'PASSWORD_ERROR_LENGTH'|translate}}
-      </p>
-    </ng-container>
-  </div>
+    <div class="form-control-group">
+      <label>{{'CONFIRM_PASSWORD'|translate}}*:</label>
+      <input type="password" placeholder="{{'CONFIRM_PASSWORD'|translate}}" [(ngModel)]="user.confirmPassword"
+        class="align-self-center form-control" nbInput #confirmPassword="ngModel" name="confirmPassword"
+        id="input-confirmPassword" autofocus
+        [status]="confirmPassword.dirty ? (confirmPassword.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="confirmPassword.invalid && confirmPassword.touched ? true : null" [minlength]="6"
+        [maxlength]="20">
+      <ng-container *ngIf="confirmPassword.invalid && confirmPassword.touched">
+        <p class="error-message" *ngIf="confirmPassword.errors?.required">
+          {{'CONFIRM_PASSWORD'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+        <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+          {{'PASSWORD_ERROR_LENGTH'|translate}}
+        </p>
+      </ng-container>
+    </div>
 
-  <div class="form-control-group">
-    <label>{{'EMAIL'|translate}}*:</label>
-    <input type="email" placeholder="{{'EMAIL'|translate}}" [(ngModel)]="user.email"
-           class="align-self-center form-control" nbInput #email="ngModel" name="email" id="input-email" autofocus
-           [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="email.invalid && email.touched ? true : null">
-    <ng-container *ngIf="email.invalid && email.touched">
-      <p class="error-message" *ngIf="email.errors?.required">
-        {{'EMAIL'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
+    <div class="form-control-group">
+      <label>{{'EMAIL'|translate}}*:</label>
+      <input type="email" placeholder="{{'EMAIL'|translate}}" [(ngModel)]="user.email"
+        class="align-self-center form-control" nbInput #email="ngModel" name="email" id="input-email" autofocus
+        [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+      <ng-container *ngIf="email.invalid && email.touched">
+        <p class="error-message" *ngIf="email.errors?.required">
+          {{'EMAIL'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
 
-  <div class="form-control-group">
-    <label>{{'MOBILE'|translate}}*:</label>
-    <input type="text" placeholder="{{'MOBILE'|translate}}" [(ngModel)]="user.mobile"
-           class="align-self-center form-control" nbInput #mobile="ngModel" name="mobile" id="input-mobile" autofocus
-           [status]="mobile.dirty ? (mobile.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="mobile.invalid && mobile.touched ? true : null">
-    <ng-container *ngIf="mobile.invalid && mobile.touched">
-      <p class="error-message" *ngIf="mobile.errors?.required">
-        {{'MOBILE'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
-  <div class="form-control-group">
-    <label>{{'GOVERONRATE'|translate}}*:</label>
-    <input type="text" placeholder="{{'GOVERONRATE'|translate}}" [(ngModel)]="user.governorate"
-           class="align-self-center form-control" nbInput #governorate="ngModel" name="governorate"
-           autofocus [status]="governorate.dirty ? (governorate.invalid  ? 'danger' : 'success') : ''" required
-           [attr.aria-invalid]="governorate.invalid && governorate.touched ? true : null">
-    <ng-container *ngIf="governorate.invalid && governorate.touched">
-      <p class="error-message" *ngIf="governorate.errors?.required">
-        {{'GOVERONRATE'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
-  <div class="form-control-group">
-    <label>{{'CITY'|translate}}:</label>
-    <input type="text" placeholder="{{'CITY'|translate}}" [(ngModel)]="user.city"
-           class="align-self-center form-control" nbInput #city="ngModel" name="city" id="input-city">
-  </div>
-  <div class="form-control-group">
-    <label>{{'ADDRESS'|translate}}:</label>
-    <input type="text" placeholder="{{'ADDRESS'|translate}}" [(ngModel)]="user.address"
-           class="align-self-center form-control" nbInput #address="ngModel" name="address" >
-  </div>
-  <div class="form-control-group">
-    <label>{{'LANGUAGE'|translate}}*:</label>
-    <select required name="language" [(ngModel)]="user.language" #language="ngModel"
-            class="align-self-center form-control" nbInput autofocus
-            [attr.aria-invalid]="language.invalid && language.touched ? true : null">
-      <option value="en" selected>{{'ENGLISH'|translate}}</option>
-      <option value="ar">{{'ARABIC'|translate}}</option>
-    </select>
-    <ng-container *ngIf="language.invalid && language.touched">
-      <p class="error-message" *ngIf="language.errors?.required">
-        {{'LANGUAGE'|translate}} {{'IS_REQUIRED'|translate}}
-      </p>
-    </ng-container>
-  </div>
-  <div class="form-control-group">
-    <label>{{'LOGO'|translate}}*:</label>
-    <input type="file" (change)="selectFile($event)"
-           class="align-self-center form-control" nbInput name="logo">
-  </div>
+    <div class="form-control-group">
+      <label>{{'MOBILE'|translate}}*:</label>
+      <input type="text" placeholder="{{'MOBILE'|translate}}" [(ngModel)]="user.mobile"
+        class="align-self-center form-control" nbInput #mobile="ngModel" name="mobile" id="input-mobile" autofocus
+        [status]="mobile.dirty ? (mobile.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="mobile.invalid && mobile.touched ? true : null">
+      <ng-container *ngIf="mobile.invalid && mobile.touched">
+        <p class="error-message" *ngIf="mobile.errors?.required">
+          {{'MOBILE'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="form-control-group">
+      <label>{{'GOVERONRATE'|translate}}*:</label>
+      <input type="text" placeholder="{{'GOVERONRATE'|translate}}" [(ngModel)]="user.governorate"
+        class="align-self-center form-control" nbInput #governorate="ngModel" name="governorate" autofocus
+        [status]="governorate.dirty ? (governorate.invalid  ? 'danger' : 'success') : ''" required
+        [attr.aria-invalid]="governorate.invalid && governorate.touched ? true : null">
+      <ng-container *ngIf="governorate.invalid && governorate.touched">
+        <p class="error-message" *ngIf="governorate.errors?.required">
+          {{'GOVERONRATE'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="form-control-group">
+      <label>{{'CITY'|translate}}:</label>
+      <input type="text" placeholder="{{'CITY'|translate}}" [(ngModel)]="user.city"
+        class="align-self-center form-control" nbInput #city="ngModel" name="city" id="input-city">
+    </div>
+    <div class="form-control-group">
+      <label>{{'ADDRESS'|translate}}:</label>
+      <input type="text" placeholder="{{'ADDRESS'|translate}}" [(ngModel)]="user.address"
+        class="align-self-center form-control" nbInput #address="ngModel" name="address">
+    </div>
+    <div class="form-control-group">
+      <label>{{'LANGUAGE'|translate}}*:</label>
+      <select required name="language" [(ngModel)]="user.language" #language="ngModel"
+        class="align-self-center form-control" nbInput autofocus
+        [attr.aria-invalid]="language.invalid && language.touched ? true : null">
+        <option value="en" selected>{{'ENGLISH'|translate}}</option>
+        <option value="ar">{{'ARABIC'|translate}}</option>
+      </select>
+      <ng-container *ngIf="language.invalid && language.touched">
+        <p class="error-message" *ngIf="language.errors?.required">
+          {{'LANGUAGE'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="form-control-group">
+      <label>{{'LOGO'|translate}}*:</label>
+      <input type="file" (change)="selectFile($event)" class="align-self-center form-control" nbInput name="logo">
+    </div>
 
-  <div class="form-control-group">
-    <button nbButton fullWidth status="success" [disabled]="form.submitted || !form.valid" [class.btn-pulse]="form.submitted">
-      {{'REGISTER'|translate}}
-    </button>
-  </div>
-</form>
+    <div class="form-control-group">
+      <button nbButton fullWidth status="success" [disabled]="form.submitted || !form.valid"
+        [class.btn-pulse]="form.submitted">
+        {{'REGISTER'|translate}}
+      </button>
+    </div>
+  </form>

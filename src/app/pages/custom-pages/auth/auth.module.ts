@@ -5,15 +5,21 @@ import { RouterModule } from '@angular/router';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { NbAuthModule } from '@nebular/auth';
+
 import {
   NbAlertModule,
   NbButtonModule,
   NbCheckboxModule,
-  NbInputModule
+  NbInputModule,
+  NbActionsModule
 } from '@nebular/theme';
 import { LoginComponent } from '../login/login.component'; // <---
 import { RegisterComponent } from '../merchant/register/register.component';
 import {SharedModule} from "../../../shared.module";
+import { ThemeModule } from '../../../@theme/theme.module';
+import { CustomAuthComponent } from './custom-auth/custom-auth.component';
+import { UiFeaturesModule } from '../../ui-features/ui-features.module';
+
 
 
 
@@ -28,12 +34,17 @@ import {SharedModule} from "../../../shared.module";
     NbButtonModule,
     NbCheckboxModule,
     AuthRoutingModule,
-    NbAuthModule
+    NbAuthModule,
+    ThemeModule,
+    UiFeaturesModule,
+    NbActionsModule,
+    
   ],
   exports: [LoginComponent,RegisterComponent],
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CustomAuthComponent
   ]
 })
 export class NgxAuthModule {
