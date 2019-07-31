@@ -30,6 +30,8 @@ export class PagesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userService.switchLanguageWithoutSave(this.userService.getCurrentUser().language);
+
     const menu = this.userService.getCurrentUser().type === 'STORE' ? STORE_ITEMS :
       this.userService.getCurrentUser().type === 'DELEGATE' ? DELEGATE_ITEMS : MENU_ITEMS;
 
