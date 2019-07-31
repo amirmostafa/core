@@ -42,7 +42,46 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
         data['requestModels'][i].statusLocalized = this.translate.instant(data['requestModels'][i].status);
       }
       this.requests = data['requestModels'];
+      if(this.requests && this.requests.length >0){
+        setTimeout(this.hideElements, 10);
+      }
     })
+  }
+  hideElements() {
+    let checkmark = document.getElementsByClassName('ion-checkmark');
+    for (let i = 0; i < checkmark.length; i++) {
+      let parent = checkmark[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("hide-delivered")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-rejected")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-accepted") ;
+    }
+    let close = document.getElementsByClassName('ion-close');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
+
+    for (let i = 0; i < close.length; i++) {
+      let parent = close[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("hide-delivered")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-rejected")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-accepted") ;
+    }
+
+    let paper = document.getElementsByClassName('ion-paper-airplane');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
+
+    for (let i = 0; i < paper.length; i++) {
+      let parent = paper[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("hide-delivered")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-rejected")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-assigned");
+    }
+
+    let minus = document.getElementsByClassName('ion-minus-round');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
+
+    for (let i = 0; i < minus.length; i++) {
+      let parent = minus[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("hide-delivered")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-rejected")
+      || parent.parentElement.parentElement.parentElement.classList.contains("hide-assigned");
+      ;
+    }
   }
 
   customAction(event) {
@@ -66,7 +105,7 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
   }
 
   view(data) {
-    this.router.navigate(['/pages/add-request/' + data.id]);
+    this.router.navigate(['/pages/add-request/' + data.id + '/true']);
   }
 
   approve(data) {
@@ -112,6 +151,9 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
       }
       if (row.data.status === 'DELIVERED' || row.data.status === 'REJECTED_BY_CLIENT') {
         return 'hide-delivered';
+      }
+      if (row.data.status === 'ASSIGNED_TO_DELEGATE') {
+        return 'hide-assigned';
       }
 
       return '';

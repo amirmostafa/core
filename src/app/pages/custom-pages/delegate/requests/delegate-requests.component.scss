@@ -22,15 +22,13 @@
   text-align: center;
 }
 
-
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-accepted i.ion-checkmark{display:none;}
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-accepted i.ion-close{display:none;}
-
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-rejected i.ion-checkmark{display:none;}
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-rejected i.ion-close{display:none;}
-
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-delivered i.ion-close{display:none;}
 :host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-delivered i.ion-checkmark{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-rejected i.ion-checkmark{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-accepted i.ion-checkmark{display:none;}
+
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-accepted i.ion-close{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-rejected i.ion-close{display:none;}
+:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-delivered i.ion-close{display:none;}
 
 :host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-rejected i.ion-paper-airplane{display:none;}
 :host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-delivered i.ion-paper-airplane{display:none;}

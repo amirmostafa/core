@@ -28,10 +28,6 @@ export class UsersComponent implements OnInit {
       delete: false,
       custom: [
         {
-          name: 'approve',
-          title: '<i class="ion-checkmark" title="' + this.translate.instant('APPROVE') + '"></i>'
-        },
-        {
           name: 'edit',
           title: '<i class="ion-edit" title="' + this.translate.instant('EDIT') + '"></i>'
         },
@@ -46,6 +42,10 @@ export class UsersComponent implements OnInit {
         {
           name: 'reject',
           title: '<i class="ion-close" title="' + this.translate.instant('REJECT') + '"></i>'
+        },
+        {
+          name: 'approve',
+          title: '<i class="ion-checkmark" title="' + this.translate.instant('APPROVE') + '"></i>'
         }
       ],
       position: 'right',
@@ -133,9 +133,24 @@ export class UsersComponent implements OnInit {
         data['userModels'][i].typeLocalized = this.translate.instant(data['userModels'][i].type);
       }
       this.users = data['userModels'];
+      if(this.users && this.users.length >0){
+        setTimeout(this.hideElements, 10);
+      }
     })
   }
+  hideElements() {
+    let checkmark = document.getElementsByClassName('ion-checkmark');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
+    for (let i = 0; i < checkmark.length; i++) {
+      let parent = checkmark[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("hide-assign");
+    }
+    let close = document.getElementsByClassName('ion-close');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
 
+    for (let i = 0; i < close.length; i++) {
+      let parent = close[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("show-assign");
+    }
+  }
   customAction(event) {
     switch (event.action) {
       case 'view-requests':

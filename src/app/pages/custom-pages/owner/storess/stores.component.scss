@@ -37,7 +37,9 @@
 }
 
 //
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-assign a i.ion-checkmark{display:none;}
-:host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.show-assign a i.ion-close{display:none;}
+// :host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.hide-assign a i.ion-checkmark{display:none;}
+// :host /deep/ tr.flow i.fa-user-times,:host /deep/ tr.show-assign a i.ion-close{display:none;}
 
-
+// :host /deep/ .ng2-smart-actions a.ng2-smart-action{
+//    border: none !important;
+// }

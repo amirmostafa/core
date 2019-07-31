@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../../../utils/services/user.service";
-import {UserModel} from "../../../../utils/models/user.model";
-import {HttpClient} from "@angular/common/http";
-import {TranslateService} from "@ngx-translate/core";
-import {Router} from "@angular/router";
-import {ToasterService} from "../../../../utils/services/toaster.service";
-import {NbToastStatus} from "@nebular/theme/components/toastr/model";
+import { Component, OnInit } from '@angular/core';
+import { UserService } from "../../../../utils/services/user.service";
+import { UserModel } from "../../../../utils/models/user.model";
+import { HttpClient } from "@angular/common/http";
+import { TranslateService } from "@ngx-translate/core";
+import { Router } from "@angular/router";
+import { ToasterService } from "../../../../utils/services/toaster.service";
+import { NbToastStatus } from "@nebular/theme/components/toastr/model";
 
 
 @Component({
@@ -29,10 +29,6 @@ export class StoresComponent implements OnInit {
       delete: false,
       custom: [
         {
-          name: 'approve',
-          title: '<i class="ion-checkmark" title="' + this.translate.instant('APPROVE') + '"></i>'
-        },
-        {
           name: 'view',
           title: '<i class="ion-eye" title="' + this.translate.instant('VIEW') + '"></i>'
         },
@@ -47,6 +43,10 @@ export class StoresComponent implements OnInit {
         {
           name: 'reject',
           title: '<i class="ion-close" title="' + this.translate.instant('REJECT') + '"></i>'
+        },
+        {
+          name: 'approve',
+          title: '<i class="ion-checkmark" title="' + this.translate.instant('APPROVE') + '"></i>'
         }
       ],
       position: 'right',
@@ -94,8 +94,8 @@ export class StoresComponent implements OnInit {
           config: {
             selectText: this.translate.instant('ALL'),
             list: [
-              {value: this.translate.instant('ACTIVE'), title: this.translate.instant('ACTIVE')},
-              {value: this.translate.instant('IN_ACTIVE'), title: this.translate.instant('IN_ACTIVE')}
+              { value: this.translate.instant('ACTIVE'), title: this.translate.instant('ACTIVE') },
+              { value: this.translate.instant('IN_ACTIVE'), title: this.translate.instant('IN_ACTIVE') }
             ]
           }
         }
@@ -106,10 +106,10 @@ export class StoresComponent implements OnInit {
   stores;
 
   constructor(private userService: UserService,
-              private http: HttpClient,
-              private translate: TranslateService,
-              private router: Router,
-              private toaster: ToasterService) {
+    private http: HttpClient,
+    private translate: TranslateService,
+    private router: Router,
+    private toaster: ToasterService) {
   }
 
   ngOnInit() {
@@ -123,7 +123,25 @@ export class StoresComponent implements OnInit {
           this.translate.instant('ACTIVE') : this.translate.instant('IN_ACTIVE');
       }
       this.stores = data['userModels'];
+      if (this.stores && this.stores.length > 0) {
+        setTimeout(this.hideElements, 10);
+      }
+
     })
+  }
+
+  hideElements() {
+    let checkmark = document.getElementsByClassName('ion-checkmark');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
+    for (let i = 0; i < checkmark.length; i++) {
+      let parent = checkmark[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("hide-assign");
+    }
+    let close = document.getElementsByClassName('ion-close');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
+
+    for (let i = 0; i < close.length; i++) {
+      let parent = close[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("show-assign");
+    }
   }
 
   customAction(event) {
@@ -172,6 +190,6 @@ export class StoresComponent implements OnInit {
   }
 
   viewRequests(data) {
-    this.router.navigate(['/pages/requests/'+data.type + '/' + data.id]);
+    this.router.navigate(['/pages/requests/' + data.type + '/' + data.id]);
   }
 }

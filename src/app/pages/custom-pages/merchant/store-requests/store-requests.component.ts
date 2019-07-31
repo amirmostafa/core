@@ -119,9 +119,18 @@ export class StoreRequestsComponent implements OnInit {
         data['requestModels'][i].statusLocalized = this.translate.instant(data['requestModels'][i].status);
       }
       this.requests = data['requestModels'];
+      if(this.requests && this.requests.length >0){
+        setTimeout(this.hideElements, 10);
+      }
     })
   }
-
+  hideElements() {
+    let checkmark = document.getElementsByClassName('ion-edit');//[0].parentElement;//.parentElement.parentElement.parentElement.classList.contains('hide-assign');
+    for (let i = 0; i < checkmark.length; i++) {
+      let parent = checkmark[i].parentElement;
+      parent.hidden = parent.parentElement.parentElement.parentElement.classList.contains("hide-edit");
+    }
+  }
   customAction(event) {
     switch (event.action) {
       case 'view':

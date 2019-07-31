@@ -10,4 +10,5 @@
 
 export const environment = {
   production: false,
+  baseUrl: 'http://dev-amostafa-nb:8090/Core/'
 };
