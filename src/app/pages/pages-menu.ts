@@ -21,5 +21,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'CONFIRM_NEW_STORES',
     icon: 'nb-e-commerce',
     link: '/pages/confirm-stores'
+  },
+  {
+    title: 'REPORTS',
+    icon: 'nb-e-commerce',
+    link: '/pages/reports'
   }
 ];

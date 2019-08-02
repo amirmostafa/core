@@ -1,0 +1,27 @@
+<nb-card>
+  <nb-card-header>
+    {{'REPORTS'|translate}}
+  </nb-card-header>
+
+  <nb-card-body class="custom-card">
+    <div class="d-flex mb-3">
+      <div class="col-md-4">
+        <select name="type" [(ngModel)]="type" (change)="onTypechange()"
+                class="align-self-center form-control" nbInput autofocus>
+          <option value="STORE">{{'STORE' | translate}}</option>
+          <option value="DELEGATE">{{'DELEGATE' | translate}}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select *ngIf="users" name="users" [(ngModel)]="user" (change)="onUserChange()"
+                class="align-self-center form-control" nbInput autofocus>
+          <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
+        </select>
+      </div>
+    </div>
+
+
+    <ng2-smart-table *ngIf="requests" [settings]="settings" (custom)="customAction($event)" [source]="requests">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

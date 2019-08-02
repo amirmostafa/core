@@ -10,7 +10,7 @@
   <!--<ngx-layout-direction-switcher></ngx-layout-direction-switcher>-->
   <nb-actions size="medium" [class.right]="position === 'normal'" [class.left]="position === 'inverse'">
     <nb-action *nbIsGranted="['view', 'user']">
-      <nb-user [nbContextMenu]="userMenu" [name]="user?.name" [picture]="user?.logo?'http://dev-amostafa-nb:8090/Core/user/getImage/' + user?.logo:null"></nb-user>
+      <nb-user [nbContextMenu]="userMenu" [name]="user?.name" [picture]="user?.logo?'http://ec2-18-220-44-106.us-east-2.compute.amazonaws.com:8090/Core/user/getImage/' + user?.logo:null"></nb-user>
     </nb-action>
     <nb-action>
       <!-- <nb-search type="rotate-layout" (click)="startSearch()"></nb-search> -->

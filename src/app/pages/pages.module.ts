@@ -26,12 +26,14 @@ import {DelegateRequestsComponent} from "./custom-pages/delegate/requests/delega
 import { RedirectorComponent } from './custom-pages/redirector/redirector.component';
 import {StoresComponent} from "./custom-pages/owner/storess/stores.component";
 import {UsersComponent} from "./custom-pages/owner/userss/users.component";
+import {ReportsComponent} from "./custom-pages/owner/reports/reports.component";
 
 const PAGES_COMPONENTS = [
   PagesComponent,
   AddUserComponent,
   ConfirmStoreComponent,
-  ViewProfileComponent
+  ViewProfileComponent,
+  ReportsComponent
 ];
 
 @NgModule({

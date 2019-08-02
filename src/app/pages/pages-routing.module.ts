@@ -16,6 +16,7 @@ import {DelegateRequestsComponent} from "./custom-pages/delegate/requests/delega
 import {RedirectorComponent} from "./custom-pages/redirector/redirector.component";
 import {StoresComponent} from "./custom-pages/owner/storess/stores.component";
 import {UsersComponent} from "./custom-pages/owner/userss/users.component";
+import {ReportsComponent} from "./custom-pages/owner/reports/reports.component";
 
 const routes: Routes = [{
   path: '',
@@ -24,6 +25,11 @@ const routes: Routes = [{
     {
       path: 'add-user',
       component: AddUserComponent,
+      canActivate: [AuthGaurdOwnerService]
+    },
+    {
+      path: 'reports',
+      component: ReportsComponent,
       canActivate: [AuthGaurdOwnerService]
     },
     {

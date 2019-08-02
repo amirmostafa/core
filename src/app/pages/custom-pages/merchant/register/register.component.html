@@ -147,7 +147,7 @@
     </div>
 
     <div class="form-control-group">
-      <button nbButton fullWidth status="success" [disabled]="form.submitted || !form.valid"
+      <button nbButton fullWidth status="success" [disabled]="!form.valid"
         [class.btn-pulse]="form.submitted">
         {{'REGISTER'|translate}}
       </button>

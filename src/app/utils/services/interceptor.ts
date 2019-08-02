@@ -24,17 +24,14 @@ export class HTTPInterceptorImp implements HttpInterceptor, OnInit {
 
 
   private currentRoute;
-  //baseURL = 'http://dev-amostafa-nb:8090/Core/';
-  baseURL = 'http://ec2-18-220-44-106.us-east-2.compute.amazonaws.com:8090/Core/';
+  baseURL = 'http://dev-amostafa-nb:8090/Core/';
+  // baseURL = 'http://ec2-18-220-44-106.us-east-2.compute.amazonaws.com:8090/Core/';
 
   config: ToasterConfig;
 
   index = 1;
-  destroyByClick = true;
   duration = 2000;
-  hasIcon = true;
   position: NbGlobalPosition = NbGlobalPhysicalPosition.TOP_RIGHT;
-  preventDuplicates = false;
   status: NbToastStatus = NbToastStatus.SUCCESS;
 
   constructor(private activeRoute: ActivatedRoute,

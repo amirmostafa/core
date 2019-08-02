@@ -40,7 +40,7 @@
     </div>
 
 
-    <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted">
+    <button nbButton fullWidth status="success" [disabled]="!form.valid" [class.btn-pulse]="submitted">
       {{'LOGIN'|translate}}
     </button>
   </form>
