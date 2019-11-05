@@ -16,7 +16,6 @@ import {NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService} from "@nebu
 import {NbToastStatus} from "@nebular/theme/components/toastr/model";
 import {ToasterConfig} from "angular2-toaster";
 import {ToasterService} from "./toaster.service";
-import {TranslateService} from "@ngx-translate/core";
 
 
 @Injectable()
@@ -24,8 +23,8 @@ export class HTTPInterceptorImp implements HttpInterceptor, OnInit {
 
 
   private currentRoute;
-  baseURL = 'http://dev-amostafa-nb:8090/Core/';
-  // baseURL = 'http://ec2-18-220-44-106.us-east-2.compute.amazonaws.com:8090/Core/';
+  baseURL = 'http://AMIR-ASHOUR:8090/Core/';
+  // baseURL = 'http://ec2-54-162-230-117.compute-1.amazonaws.com:8090/Core/';
 
   config: ToasterConfig;
 

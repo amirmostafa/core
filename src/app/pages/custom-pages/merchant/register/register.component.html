@@ -1,11 +1,10 @@
-<!-- <nb-card-header>
-  <nav class="navigation">
-    <a href="#" (click)="back()" class="link back-link" aria-label="Back">
-       <nb-icon icon="arrow-back"></nb-icon>
-      <span class="ion-arrow-left-c"></span>
-    </a>
-  </nav>
-</nb-card-header> -->
+<nb-action class="d-flex justify-content-end">
+  <!-- <nb-search type="rotate-layout" (click)="startSearch()"></nb-search> -->
+  <a class="pull-left p-r-20 fs-14 font-heading " href="javascript:void(0)" (click)="switchLanguage()">
+    {{'LANGUAGE-CHANGE' | translate}} <span class="flag-icon" (click)="switchLanguage()"
+                                            [ngClass]="{'flag-icon-eg': user.language === 'en', 'flag-icon-us': user.language === 'ar'}"> </span>
+  </a>
+</nb-action>
   <h1 id="title" class="title">{{'REGISTER_NEW_STORE'|translate}}</h1>
 
   <form (ngSubmit)="register()" #form="ngForm">
@@ -18,19 +17,6 @@
       <ng-container *ngIf="storeName.invalid && storeName.touched">
         <p class="error-message" *ngIf="storeName.errors?.required">
           {{'STORE_NAME'|translate}} {{'IS_REQUIRED'|translate}}
-        </p>
-      </ng-container>
-    </div>
-    <div class="form-control-group">
-      <label>{{'‎COMMERCIAL_REGISTER'|translate}}*:</label>
-      <input type="text" placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}" [(ngModel)]="user.commercialRegister"
-        class="align-self-center form-control" nbInput #commercialRegister="ngModel" name="commercialRegister"
-        id="input-commercialRegister" autofocus
-        [status]="commercialRegister.dirty ? (commercialRegister.invalid  ? 'danger' : 'success') : ''" required
-        [attr.aria-invalid]="commercialRegister.invalid && commercialRegister.touched ? true : null">
-      <ng-container *ngIf="commercialRegister.invalid && commercialRegister.touched">
-        <p class="error-message" *ngIf="commercialRegister.errors?.required">
-          {{'COMMERCIAL_REGISTER'|translate}} {{'IS_REQUIRED'|translate}}
         </p>
       </ng-container>
     </div>
@@ -81,19 +67,6 @@
     </div>
 
     <div class="form-control-group">
-      <label>{{'EMAIL'|translate}}*:</label>
-      <input type="email" placeholder="{{'EMAIL'|translate}}" [(ngModel)]="user.email"
-        class="align-self-center form-control" nbInput #email="ngModel" name="email" id="input-email" autofocus
-        [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''" required
-        [attr.aria-invalid]="email.invalid && email.touched ? true : null">
-      <ng-container *ngIf="email.invalid && email.touched">
-        <p class="error-message" *ngIf="email.errors?.required">
-          {{'EMAIL'|translate}} {{'IS_REQUIRED'|translate}}
-        </p>
-      </ng-container>
-    </div>
-
-    <div class="form-control-group">
       <label>{{'MOBILE'|translate}}*:</label>
       <input type="text" placeholder="{{'MOBILE'|translate}}" [(ngModel)]="user.mobile"
         class="align-self-center form-control" nbInput #mobile="ngModel" name="mobile" id="input-mobile" autofocus
@@ -118,31 +91,42 @@
       </ng-container>
     </div>
     <div class="form-control-group">
-      <label>{{'CITY'|translate}}:</label>
+      <label>{{'CITY'|translate}}*:</label>
       <input type="text" placeholder="{{'CITY'|translate}}" [(ngModel)]="user.city"
-        class="align-self-center form-control" nbInput #city="ngModel" name="city" id="input-city">
-    </div>
-    <div class="form-control-group">
-      <label>{{'ADDRESS'|translate}}:</label>
-      <input type="text" placeholder="{{'ADDRESS'|translate}}" [(ngModel)]="user.address"
-        class="align-self-center form-control" nbInput #address="ngModel" name="address">
-    </div>
-    <div class="form-control-group">
-      <label>{{'LANGUAGE'|translate}}*:</label>
-      <select required name="language" [(ngModel)]="user.language" #language="ngModel"
-        class="align-self-center form-control" nbInput autofocus
-        [attr.aria-invalid]="language.invalid && language.touched ? true : null">
-        <option value="en" selected>{{'ENGLISH'|translate}}</option>
-        <option value="ar">{{'ARABIC'|translate}}</option>
-      </select>
-      <ng-container *ngIf="language.invalid && language.touched">
-        <p class="error-message" *ngIf="language.errors?.required">
-          {{'LANGUAGE'|translate}} {{'IS_REQUIRED'|translate}}
+        class="align-self-center form-control" nbInput #city="ngModel" name="city" id="input-city" autofocus
+             [status]="city.dirty ? (city.invalid  ? 'danger' : 'success') : ''" required
+             [attr.aria-invalid]="city.invalid && city.touched ? true : null">
+      <ng-container *ngIf="city.invalid && city.touched">
+        <p class="error-message" *ngIf="city.errors?.required">
+          {{'CITY'|translate}} {{'IS_REQUIRED'|translate}}
         </p>
       </ng-container>
     </div>
     <div class="form-control-group">
-      <label>{{'LOGO'|translate}}*:</label>
+      <label>{{'ADDRESS'|translate}}*:</label>
+      <input type="text" placeholder="{{'ADDRESS'|translate}}" [(ngModel)]="user.address"
+        class="align-self-center form-control" nbInput #address="ngModel" name="address" autofocus
+             [status]="address.dirty ? (address.invalid  ? 'danger' : 'success') : ''" required
+             [attr.aria-invalid]="address.invalid && address.touched ? true : null">
+      <ng-container *ngIf="address.invalid && address.touched">
+        <p class="error-message" *ngIf="address.errors?.required">
+          {{'ADDRESS'|translate}} {{'IS_REQUIRED'|translate}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="form-control-group">
+      <label>{{'EMAIL'|translate}}:</label>
+      <input type="email" placeholder="{{'EMAIL'|translate}}" [(ngModel)]="user.email"
+             class="align-self-center form-control" nbInput #email="ngModel" name="email" id="input-email" autofocus>
+    </div>
+    <div class="form-control-group">
+      <label>{{'‎COMMERCIAL_REGISTER'|translate}}:</label>
+      <input type="text" placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}" [(ngModel)]="user.commercialRegister"
+             class="align-self-center form-control" nbInput #commercialRegister="ngModel" name="commercialRegister"
+             id="input-commercialRegister" autofocus>
+    </div>
+    <div class="form-control-group">
+      <label>{{'LOGO'|translate}}:</label>
       <input type="file" (change)="selectFile($event)" class="align-self-center form-control" nbInput name="logo">
     </div>
 

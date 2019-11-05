@@ -32,8 +32,13 @@
 
 
 
-:host /deep/ a:hover, :host /deep/  a:focus {
+:host /deep/ a:hover, :host /deep/  a:focus, :host /deep/ .fa-file-excel, :host /deep/ .ion-document-text{
   color: #40dc7e !important;
+}
+
+:host /deep/ .fa-file-excel {
+  font-size: 1.8rem !important;
+  margin-top: 6px;
 }
 
 
@@ -48,4 +53,8 @@
 
 select.form-control:not([size]):not([multiple]) {
   height: 3rem !important;
+}
+
+:host /deep/  .ion-document {
+  color: #40dc7e !important;
 }

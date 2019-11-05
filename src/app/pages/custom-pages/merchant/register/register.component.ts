@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.user.language = 'en';
   }
 
   selectFile(event) {
@@ -25,6 +26,11 @@ export class RegisterComponent implements OnInit {
     } else {
       alert('invalid format!');
     }
+  }
+
+  switchLanguage() {
+    this.user.language = this.user.language === 'en' ? 'ar' : 'en';
+    this.userService.switchLanguageWithoutSave(this.user.language);
   }
 
   register(){

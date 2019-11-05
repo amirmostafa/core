@@ -8,7 +8,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'STORES',
-    icon: 'nb-home',
+    icon: 'nb-list',
     link: '/pages/stores',
   },
 
@@ -24,7 +24,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'REPORTS',
-    icon: 'nb-e-commerce',
+    icon: 'nb-grid-a-outline',
     link: '/pages/reports'
   }
 ];

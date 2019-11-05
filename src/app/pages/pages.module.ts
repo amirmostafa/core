@@ -27,6 +27,7 @@ import { RedirectorComponent } from './custom-pages/redirector/redirector.compon
 import {StoresComponent} from "./custom-pages/owner/storess/stores.component";
 import {UsersComponent} from "./custom-pages/owner/userss/users.component";
 import {ReportsComponent} from "./custom-pages/owner/reports/reports.component";
+import {ChangePasswordComponent} from "./custom-pages/change-password/change-password.component";
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -60,7 +61,8 @@ const PAGES_COMPONENTS = [
     DelegateRequestsComponent,
     RedirectorComponent,
     StoresComponent,
-    UsersComponent],
+    UsersComponent,
+    ChangePasswordComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     {

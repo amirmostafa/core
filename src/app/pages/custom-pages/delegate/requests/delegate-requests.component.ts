@@ -191,17 +191,22 @@ export class DelegateRequestsComponent implements OnInit, OnDestroy {
       id: {
         title: this.translate.instant('ID'),
         type: 'number',
-        width: '9%'
+        width: '8%'
       },
       userName: {
         title: this.translate.instant('STORE'),
         type: 'string',
-        width: '12%'
+        width: '11%'
       },
       name: {
         title: this.translate.instant('PRODUCT_NAME'),
         type: 'string',
-        width: '15%'
+        width: '13%'
+      },
+      totalAmount: {
+        title: this.translate.instant('TOTAL_AMOUNT'),
+        type: 'string',
+        width: '11%'
       },
       date: {
         title: this.translate.instant('DATE'),

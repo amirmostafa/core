@@ -36,3 +36,7 @@
 .ng2-smart-actions a.ng2-smart-action{
   border: none !important;
 }
+
+ng2-smart-table table tr td{
+  word-break: break-all;
+}

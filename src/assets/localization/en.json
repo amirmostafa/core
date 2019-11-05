@@ -1,9 +1,9 @@
 {
   "LOGIN":"Login",
-  "LOGIN_WITH_YOUR_USERNAME":"Hello! Log in with your user name.",
-  "USER_NAME":"User Name",
+  "LOGIN_WITH_YOUR_USERNAME":"Hello! Login with your username.",
+  "USER_NAME":"Username",
   "PASSWORD":"Password",
-  "USER_NAME_IS_REQUIRED":"User name is required!",
+  "USER_NAME_IS_REQUIRED":"Username is required!",
   "PASSWORD_IS_REQUIRD":" Password is required!",
   "REMEMBBER_ME":"Remember me",
   "FORGET_PASSWORD":"Forgot Password?",
@@ -59,6 +59,7 @@
   "ERROR_EMAIL_ALREADY_EXISTING":"Error Email Already Existing",
   "NOT_EXISTING_USER":"Not Existing User",
   "INVALID_USERNAME_OR_PASSWORD":"Invalid Username or Password",
+  "INVALID_PASSWORD":"Invalid Password",
   "NOT_APPROVED_YET":"Not Approved Yet",
   "ACCOUNT_REJECTED":"Account Rejected",
   "REQUEST_NOT_EXISTING":"Request Not Existing",
@@ -95,7 +96,7 @@
   "ACTIVE": "Active",
   "IN_ACTIVE": "In-Active",
   "STORES": "Stores",
-  "REQUEST_TIME_ARRIVAL": "Request Time Arrival",
+  "REQUEST_TIME_ARRIVAL": "Time Of Receipt",
   "USER_REJECTED_SUCCESSFULLY": "User Rejected Successfully",
   "USER_DELETED_SUCCESSFULLY": "User Deleted Successfully",
   "SITE_ADMIN_CANT_BE_DELETED": "Site Admin can't be deleted",
@@ -105,7 +106,15 @@
   "USER_CANT_BE_DELETED": "User can't be deleted because he has requests",
   "EDIT_USER": "Edit User",
   "REJECTED_BY_CLIENT": "Rejected by client",
-  "REQUEST_REJECTED_BY_CLIENT_SUCCESSFULLY": "Request rejected by client successfully"
-
-
+  "REQUEST_REJECTED_BY_CLIENT_SUCCESSFULLY": "Request rejected by client successfully",
+  "REPORTS": "Reports",
+  "SELECT_USER": "Select user",
+  "GOVERONRATE": "Goveronrate",
+  "LOGO": "Logo",
+  "STATUSES": "Statuses",
+  "COUNT": "Count",
+  "OLD_PASSWORD":"Old Password",
+  "NEW_PASSWORD":"New Password",
+  "CHANGE_PASSWORD":"Change Password"و
+  "REJECTION_REASON": "Rejection Reason"
 }

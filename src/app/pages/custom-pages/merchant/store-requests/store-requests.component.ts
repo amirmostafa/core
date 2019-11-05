@@ -67,7 +67,8 @@ export class StoreRequestsComponent implements OnInit {
       deliveryAddress: {
         title: this.translate.instant('DELIVERY_ADDRESS'),
         type: 'string',
-        width: '15%'
+        width: '15%',
+        maxWidth: '15%'
       },
       statusLocalized: {
         title: this.translate.instant('STATUS'),
@@ -132,6 +133,9 @@ export class StoreRequestsComponent implements OnInit {
     }
   }
   customAction(event) {
+    if(this.requests && this.requests.length >0){
+      setTimeout(this.hideElements, 10);
+    }
     switch (event.action) {
       case 'view':
         this.view(event.data);

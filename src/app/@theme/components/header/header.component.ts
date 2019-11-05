@@ -17,7 +17,9 @@ export class HeaderComponent implements OnInit {
 
   user: any;
 
-  userMenu = [{ title: this.translate.instant('PROFILE'), link: '/pages/view-profile' }, { title: this.translate.instant('LOG_OUT'), link: '/auth/login' }];
+  userMenu = [{ title: this.translate.instant('PROFILE'), link: '/pages/view-profile' },
+    { title: this.translate.instant('CHANGE_PASSWORD'), link: '/pages/change-password' },
+    { title: this.translate.instant('LOG_OUT'), link: '/auth/login' }];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,

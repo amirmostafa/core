@@ -1,5 +1,6 @@
 <nb-card>
-  <nb-card-header>{{editParam? 'EDIT_USER': 'PROFILE'|translate}}</nb-card-header>
+  <nb-card-header *ngIf="editParam">{{'EDIT_USER'|translate}}</nb-card-header>
+  <nb-card-header *ngIf="!editParam">{{'PROFILE'|translate}}</nb-card-header>
   <nb-card-body class="card-add-user">
     <div class="form-group d-flex align-items-center">
       <div class="d-flex w-100 justify-content-center">
@@ -12,8 +13,8 @@
                     <label>{{'SELECT_TYPE'|translate}}:</label>
                   </div>
                   <div class="col-md-9 input-group">
-                    <input type="text" name="type" #type="ngModel" placeholder="{{'EMAIL'|translate}}"
-                      [(ngModel)]="user.type" class="align-self-center form-control" disabled />
+                    <input type="text" name="type" #type="ngModel" placeholder="{{'SELECT_TYPE'|translate}}"
+                           [(ngModel)]="user.type" class="align-self-center form-control" disabled/>
                   </div>
                 </div>
                 <div class="d-flex  pb-4">
@@ -23,7 +24,7 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <input type="email" name="email" #email="ngModel" placeholder="{{'EMAIL'|translate}}"
-                        [(ngModel)]="user.email" class="align-self-center form-control" disabled />
+                             [(ngModel)]="user.email" class="align-self-center form-control"/>
                     </div>
                   </div>
                 </div>
@@ -34,7 +35,7 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <input type="text" name="address" #address="ngModel" placeholder="{{'ADDRESS'|translate}}"
-                        [(ngModel)]="user.address" class="align-self-center form-control" />
+                             [(ngModel)]="user.address" class="align-self-center form-control" required/>
                     </div>
                   </div>
                 </div>
@@ -45,8 +46,8 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <input type="text" name="governorate" #governorate="ngModel"
-                        placeholder="{{'GOVERNORATE'|translate}}" [(ngModel)]="user.governorate"
-                        class="align-self-center form-control" />
+                             placeholder="{{'GOVERNORATE'|translate}}" [(ngModel)]="user.governorate"
+                             class="align-self-center form-control" required/>
                     </div>
                   </div>
                 </div>
@@ -57,8 +58,8 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <select required name="language" [(ngModel)]="user.language" #language="ngModel"
-                        class="align-self-center form-control" nbInput autofocus
-                        [attr.aria-invalid]="language.invalid && language.touched ? true : null">
+                              class="align-self-center form-control" nbInput autofocus
+                              [attr.aria-invalid]="language.invalid && language.touched ? true : null">
                         <option value="en" selected>{{'ENGLISH'|translate}}</option>
                         <option value="ar">{{'ARABIC'|translate}}</option>
                       </select>
@@ -74,7 +75,7 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <input type="text" name="username" #username="ngModel" placeholder="{{'USER_NAME'|translate}}"
-                        [(ngModel)]="user.username" class="form-control" disabled />
+                             [(ngModel)]="user.username" class="form-control" disabled/>
                     </div>
                   </div>
                 </div>
@@ -85,7 +86,7 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <input type="text" name="mobile" #mobile="ngModel" placeholder="{{'MOBILE'|translate}}"
-                        [(ngModel)]="user.mobile" class="align-self-center form-control" />
+                             [(ngModel)]="user.mobile" class="align-self-center form-control" required/>
                     </div>
                   </div>
                 </div>
@@ -97,7 +98,7 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <input type="text" name="city" #city="ngModel" placeholder="{{'CITY'|translate}}"
-                        [(ngModel)]="user.city" class="align-self-center form-control" />
+                             [(ngModel)]="user.city" class="align-self-center form-control" required/>
                     </div>
                   </div>
                 </div>
@@ -108,8 +109,8 @@
                   <div class="col-md-9">
                     <div class="input-group">
                       <input type="text" name="commercialRegister" #commercialRegister="ngModel"
-                        placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}" [(ngModel)]="user.commercialRegister"
-                        class="align-self-center form-control" />
+                             placeholder="{{'‎COMMERCIAL_REGISTER'|translate}}" [(ngModel)]="user.commercialRegister"
+                             class="align-self-center form-control"/>
                     </div>
                   </div>
                 </div>
@@ -118,7 +119,7 @@
             <div *ngIf="disabled !== true" class="d-flex justify-content-center">
               <div class="col-md-3">
                 <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid"
-                  [class.btn-pulse]="submitted">
+                        [class.btn-pulse]="submitted">
                   {{'SAVE'|translate}}
                 </button>
               </div>

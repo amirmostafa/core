@@ -166,22 +166,27 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
       id: {
         title: this.translate.instant('ID'),
         type: 'number',
-        width: '9%'
+        width: '5%'
       },
       userName: {
         title: this.translate.instant('STORE'),
         type: 'string',
-        width: '12%'
+        width: '9%'
       },
       name: {
         title: this.translate.instant('PRODUCT_NAME'),
         type: 'string',
-        width: '12%'
+        width: '11%'
+      },
+      totalAmount: {
+        title: this.translate.instant('TOTAL_AMOUNT'),
+        type: 'string',
+        width: '8%'
       },
       date: {
         title: this.translate.instant('DATE'),
         type: 'string',
-        width: '12%'
+        width: '11%'
       },
       deliveryAddress: {
         title: this.translate.instant('DELIVERY_ADDRESS'),
@@ -212,10 +217,15 @@ export class OwnerRequestsComponent implements OnInit, OnDestroy {
         }
       },
       assignedtoName: {
-        title: this.translate.instant('ASSIGNED_TO'),
+        title: this.translate.instant('DELEGATE'),
         type: 'string',
-        width: '12%'
+        width: '10%'
       },
+    rejectionReason: {
+      title: this.translate.instant('REJECTION_REASON'),
+      type: 'string',
+      width: '10%'
+    },
     },
   };
 
